@@ -3,321 +3,840 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>活动公告 - Hodor加密货币资讯中心</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/enhanced-ui.css">
+    <title>活动公告 - HodorCrypto 专业加密货币平台</title>
+    <link rel="stylesheet" href="../css/ultra-modern.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Hodor<span>Crypto</span></h1>
+    <!-- 加载动画 -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="crypto-logo">
+                <i class="fas fa-bullhorn"></i>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="../index.html">首页</a></li>
-                    <li><a href="market.html">市场行情</a></li>
-                    <li><a href="news.html">最新资讯</a></li>
-                    <li><a href="guides.html">交易教程</a></li>
-                    <li><a href="announcements.html" class="active">活动公告</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
+            <div class="loading-text">加载活动公告</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
             </div>
         </div>
-    </header>
+    </div>
 
+    <!-- 顶部实时价格条 -->
+    <div class="price-ticker">
+        <div class="ticker-wrapper">
+            <div class="ticker-content" id="tickerContent">
+                <!-- 实时数据将通过JavaScript加载 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Hodor<span class="brand-accent">Crypto</span></h1>
+                    <span class="brand-tagline">专业数字货币平台</span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="market.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>市场行情</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link">
+                        <i class="fas fa-newspaper"></i>
+                        <span>最新资讯</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="guides.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>交易教程</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="announcements.html" class="nav-link active">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>活动公告</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
     <section class="page-header">
-        <div class="container">
-            <h1>活动公告</h1>
-            <p>了解最新平台公告和加密货币活动信息</p>
+        <div class="header-background">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
         </div>
-    </section>
-
-    <section class="announcements-filter">
+        
         <div class="container">
-            <div class="filter-controls">
-                <div class="search-box">
-                    <input type="text" id="announcement-search" placeholder="搜索公告...">
-                    <i class="fas fa-search"></i>
+            <div class="header-content">
+                <div class="header-badge">
+                    <i class="fas fa-megaphone"></i>
+                    <span>平台官方公告</span>
                 </div>
-                <div class="filter-dropdown">
-                    <select id="announcement-category">
-                        <option value="all">所有分类</option>
-                        <option value="platform">平台公告</option>
-                        <option value="event">活动信息</option>
-                        <option value="update">功能更新</option>
-                        <option value="important">重要通知</option>
-                    </select>
-                </div>
-                <div class="sort-dropdown">
-                    <select id="announcement-sort">
-                        <option value="latest">最新发布</option>
-                        <option value="important">重要程度</option>
-                    </select>
+                
+                <h1 class="page-title">
+                    活动
+                    <span class="gradient-text">公告中心</span>
+                </h1>
+                
+                <p class="page-description">
+                    获取最新的平台活动信息、系统更新通知和重要公告
+                </p>
+                
+                <div class="announcement-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">实时通知</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">活动进行中</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">50K+</div>
+                            <div class="stat-label">参与用户</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="announcements-content">
+    <!-- 公告分类导航 -->
+    <section class="announcement-categories">
         <div class="container">
-            <div class="important-announcements">
-                <h2>重要公告</h2>
-                <div class="important-announcement-card">
-                    <div class="announcement-icon">
-                        <i class="fas fa-exclamation-circle"></i>
-                    </div>
-                    <div class="announcement-content">
-                        <h3>平台升级维护公告</h3>
-                        <p>为提升用户体验，本站将于8月10日进行系统升级维护，预计维护时间为3小时，期间网站可能无法访问。</p>
+            <div class="categories-nav">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-list"></i>
+                    <span>全部公告</span>
+                </button>
+                <button class="category-btn" data-category="activity">
+                    <i class="fas fa-gift"></i>
+                    <span>活动公告</span>
+                </button>
+                <button class="category-btn" data-category="system">
+                    <i class="fas fa-cog"></i>
+                    <span>系统更新</span>
+                </button>
+                <button class="category-btn" data-category="maintenance">
+                    <i class="fas fa-tools"></i>
+                    <span>维护通知</span>
+                </button>
+                <button class="category-btn" data-category="security">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>安全公告</span>
+                </button>
+                <button class="category-btn" data-category="policy">
+                    <i class="fas fa-file-contract"></i>
+                    <span>政策更新</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 重要公告横幅 -->
+    <section class="important-banner">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="banner-text">
+                    <h3>重要安全提醒</h3>
+                    <p>请注意防范钓鱼网站，官方域名仅为 hodorcrypto.com，请勿在其他网站输入账户信息。</p>
+                </div>
+                <div class="banner-actions">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-shield-alt"></i>
+                        了解详情
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 置顶公告 -->
+    <section class="pinned-announcements">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-thumbtack"></i>
+                    <span>置顶公告</span>
+                </div>
+                <h2 class="section-title">重要通知</h2>
+            </div>
+            
+            <div class="pinned-grid">
+                <article class="announcement-card pinned">
+                    <div class="card-header">
                         <div class="announcement-meta">
-                            <span class="announcement-date">2023-08-05</span>
-                            <div class="announcement-tags">
-                                <span class="announcement-tag">系统维护</span>
-                                <span class="announcement-tag">重要通知</span>
+                            <span class="announcement-category activity">活动公告</span>
+                            <span class="announcement-priority high">
+                                <i class="fas fa-star"></i>
+                                置顶
+                            </span>
+                        </div>
+                        <div class="announcement-date">
+                            <i class="fas fa-clock"></i>
+                            2024-01-06
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="announcement-title">
+                            <i class="fas fa-gift"></i>
+                            新年狂欢活动：交易赢取10万USDT奖池
+                        </h3>
+                        <p class="announcement-excerpt">
+                            为庆祝新年到来，HodorCrypto特别推出新年狂欢交易活动。活动期间，用户可通过完成交易任务获得丰厚奖励，
+                            总奖池高达10万USDT，更有机会获得限量版NFT收藏品...
+                        </p>
+                        <div class="announcement-tags">
+                            <span class="tag">交易活动</span>
+                            <span class="tag">USDT奖池</span>
+                            <span class="tag">NFT奖励</span>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                立即参与
+                            </button>
+                            <button class="action-btn secondary">
+                                <i class="fas fa-info-circle"></i>
+                                查看详情
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="announcement-card pinned">
+                    <div class="card-header">
+                        <div class="announcement-meta">
+                            <span class="announcement-category system">系统更新</span>
+                            <span class="announcement-priority high">
+                                <i class="fas fa-star"></i>
+                                置顶
+                            </span>
+                        </div>
+                        <div class="announcement-date">
+                            <i class="fas fa-clock"></i>
+                            2024-01-05
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="announcement-title">
+                            <i class="fas fa-rocket"></i>
+                            平台重大升级：全新交易引擎上线
+                        </h3>
+                        <p class="announcement-excerpt">
+                            经过数月的开发和测试，HodorCrypto全新交易引擎正式上线。新引擎采用最先进的技术架构，
+                            交易速度提升300%，延迟降低至毫秒级，为用户提供更加流畅的交易体验...
+                        </p>
+                        <div class="announcement-tags">
+                            <span class="tag">系统升级</span>
+                            <span class="tag">性能提升</span>
+                            <span class="tag">用户体验</span>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn primary">
+                                <i class="fas fa-play"></i>
+                                体验新功能
+                            </button>
+                            <button class="action-btn secondary">
+                                <i class="fas fa-file-alt"></i>
+                                更新日志
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新公告列表 -->
+    <section class="announcements-list">
+        <div class="container">
+            <div class="list-header">
+                <div class="header-left">
+                    <h2 class="section-title">最新公告</h2>
+                    <div class="announcement-count">
+                        <span class="count-number">25</span>
+                        <span class="count-label">条公告</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="搜索公告..." id="announcementSearch">
+                    </div>
+                    <div class="sort-options">
+                        <select id="sortSelect">
+                            <option value="latest">最新发布</option>
+                            <option value="priority">重要程度</option>
+                            <option value="category">分类排序</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="announcements-timeline" id="announcementsTimeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker activity">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <article class="announcement-card">
+                            <div class="card-header">
+                                <div class="announcement-meta">
+                                    <span class="announcement-category activity">活动公告</span>
+                                    <span class="announcement-date">
+                                        <i class="fas fa-clock"></i>
+                                        2小时前
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <h3 class="announcement-title">
+                                    周末双倍积分活动开启
+                                </h3>
+                                <p class="announcement-excerpt">
+                                    本周末（1月6日-1月7日）期间，所有交易将获得双倍积分奖励。
+                                    积分可用于兑换手续费减免券、专属NFT等丰富奖品。
+                                </p>
+                                <div class="announcement-tags">
+                                    <span class="tag">双倍积分</span>
+                                    <span class="tag">周末活动</span>
+                                </div>
+                                <div class="announcement-actions">
+                                    <button class="action-btn primary">
+                                        <i class="fas fa-play"></i>
+                                        立即参与
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker system">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <article class="announcement-card">
+                            <div class="card-header">
+                                <div class="announcement-meta">
+                                    <span class="announcement-category system">系统更新</span>
+                                    <span class="announcement-date">
+                                        <i class="fas fa-clock"></i>
+                                        6小时前
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <h3 class="announcement-title">
+                                    移动端APP v2.1.0版本更新
+                                </h3>
+                                <p class="announcement-excerpt">
+                                    新版本增加了生物识别登录、智能止损、价格预警等功能，
+                                    同时优化了界面设计和交易流程，提升用户体验。
+                                </p>
+                                <div class="announcement-tags">
+                                    <span class="tag">APP更新</span>
+                                    <span class="tag">新功能</span>
+                                    <span class="tag">用户体验</span>
+                                </div>
+                                <div class="announcement-actions">
+                                    <button class="action-btn primary">
+                                        <i class="fas fa-download"></i>
+                                        立即更新
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker security">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <article class="announcement-card">
+                            <div class="card-header">
+                                <div class="announcement-meta">
+                                    <span class="announcement-category security">安全公告</span>
+                                    <span class="announcement-date">
+                                        <i class="fas fa-clock"></i>
+                                        1天前
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <h3 class="announcement-title">
+                                    加强账户安全：强制启用2FA验证
+                                </h3>
+                                <p class="announcement-excerpt">
+                                    为保障用户资产安全，平台将于1月15日起强制要求所有用户启用双因素认证(2FA)。
+                                    请尽快完成设置，避免影响正常交易。
+                                </p>
+                                <div class="announcement-tags">
+                                    <span class="tag">2FA认证</span>
+                                    <span class="tag">账户安全</span>
+                                    <span class="tag">强制执行</span>
+                                </div>
+                                <div class="announcement-actions">
+                                    <button class="action-btn primary">
+                                        <i class="fas fa-shield-alt"></i>
+                                        设置2FA
+                                    </button>
+                                    <button class="action-btn secondary">
+                                        <i class="fas fa-question-circle"></i>
+                                        设置教程
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker maintenance">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <article class="announcement-card">
+                            <div class="card-header">
+                                <div class="announcement-meta">
+                                    <span class="announcement-category maintenance">维护通知</span>
+                                    <span class="announcement-date">
+                                        <i class="fas fa-clock"></i>
+                                        2天前
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <h3 class="announcement-title">
+                                    系统维护通知：1月8日凌晨2:00-4:00
+                                </h3>
+                                <p class="announcement-excerpt">
+                                    为提升系统性能和稳定性，平台将于1月8日凌晨2:00-4:00进行系统维护。
+                                    维护期间暂停交易服务，请提前做好准备。
+                                </p>
+                                <div class="announcement-tags">
+                                    <span class="tag">系统维护</span>
+                                    <span class="tag">服务暂停</span>
+                                    <span class="tag">性能优化</span>
+                                </div>
+                                <div class="announcement-actions">
+                                    <button class="action-btn secondary">
+                                        <i class="fas fa-calendar"></i>
+                                        添加提醒
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker policy">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <article class="announcement-card">
+                            <div class="card-header">
+                                <div class="announcement-meta">
+                                    <span class="announcement-category policy">政策更新</span>
+                                    <span class="announcement-date">
+                                        <i class="fas fa-clock"></i>
+                                        3天前
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <h3 class="announcement-title">
+                                    用户协议更新：新增隐私保护条款
+                                </h3>
+                                <p class="announcement-excerpt">
+                                    根据最新法规要求，我们更新了用户协议和隐私政策，
+                                    新增了更严格的数据保护措施和用户权益保障条款。
+                                </p>
+                                <div class="announcement-tags">
+                                    <span class="tag">用户协议</span>
+                                    <span class="tag">隐私保护</span>
+                                    <span class="tag">法规合规</span>
+                                </div>
+                                <div class="announcement-actions">
+                                    <button class="action-btn primary">
+                                        <i class="fas fa-file-alt"></i>
+                                        查看协议
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker activity">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <article class="announcement-card">
+                            <div class="card-header">
+                                <div class="announcement-meta">
+                                    <span class="announcement-category activity">活动公告</span>
+                                    <span class="announcement-date">
+                                        <i class="fas fa-clock"></i>
+                                        5天前
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <h3 class="announcement-title">
+                                    交易大赛圆满结束，获奖名单公布
+                                </h3>
+                                <p class="announcement-excerpt">
+                                    为期一个月的"新年交易大赛"圆满结束，共有超过10,000名用户参与。
+                                    恭喜获奖用户，奖励将在3个工作日内发放到账。
+                                </p>
+                                <div class="announcement-tags">
+                                    <span class="tag">交易大赛</span>
+                                    <span class="tag">获奖名单</span>
+                                    <span class="tag">奖励发放</span>
+                                </div>
+                                <div class="announcement-actions">
+                                    <button class="action-btn primary">
+                                        <i class="fas fa-list"></i>
+                                        查看名单
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="load-more">
+                <button class="btn btn-outline" id="loadMoreAnnouncements">
+                    <i class="fas fa-plus"></i>
+                    <span>加载更多公告</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订阅通知 -->
+    <section class="notification-subscription">
+        <div class="container">
+            <div class="subscription-card">
+                <div class="subscription-content">
+                    <div class="subscription-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="subscription-text">
+                        <h3>订阅公告通知</h3>
+                        <p>第一时间获取重要公告和活动信息，不错过任何机会</p>
+                    </div>
+                    <div class="subscription-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-bell"></i>
+                            <span>开启通知</span>
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            <span>邮件订阅</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-gradient"></div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <div class="brand-info">
+                        <h3>Hodor<span class="brand-accent">Crypto</span></h3>
+                        <p>专业的加密货币资讯和交易指导平台</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">支持币种</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">实时监控</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>平台功能</h4>
+                        <ul>
+                            <li><a href="../index.html">首页</a></li>
+                            <li><a href="market.html">实时行情</a></li>
+                            <li><a href="news.html">市场资讯</a></li>
+                            <li><a href="guides.html">交易教程</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>学习中心</h4>
+                        <ul>
+                            <li><a href="guides/deposit-guide.html">入金指南</a></li>
+                            <li><a href="guides/withdraw-guide.html">出金指南</a></li>
+                            <li><a href="guides/security-guide.html">安全防护</a></li>
+                            <li><a href="guides/risk-management.html">风险管理</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>联系我们</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>contact@hodorcrypto.com</span>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link telegram">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#" class="social-link discord">
+                                    <i class="fab fa-discord"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="all-announcements">
-                <h2>全部公告</h2>
-                <div class="announcements-list" id="announcements-container">
-                    <!-- 公告将通过JavaScript动态加载 -->
-                    <div class="announcement-loading">加载中...</div>
-                </div>
-            </div>
             
-            <div class="pagination">
-                <button class="pagination-btn" id="prev-page" disabled>
-                    <i class="fas fa-chevron-left"></i> 上一页
-                </button>
-                <span class="page-info">第 <span id="current-page">1</span> 页，共 <span id="total-pages">1</span> 页</span>
-                <button class="pagination-btn" id="next-page">
-                    下一页 <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <section class="announcement-subscribe">
-        <div class="container">
-            <div class="subscribe-content">
-                <h2>订阅公告更新</h2>
-                <p>及时获取重要公告和活动信息</p>
-                <form class="subscribe-form">
-                    <input type="email" placeholder="您的邮箱地址" required>
-                    <button type="submit" class="btn btn-primary">订阅</button>
-                </form>
-                <p class="subscribe-note">您可以随时取消订阅</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="upcoming-events">
-        <div class="container">
-            <h2 class="section-title">即将到来的活动</h2>
-            <div class="events-timeline">
-                <div class="event-item">
-                    <div class="event-date">
-                        <span class="month">八月</span>
-                        <span class="day">15</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>加密货币安全线上研讨会</h3>
-                        <p>了解如何保护您的数字资产安全，防范黑客攻击和诈骗风险。</p>
-                        <div class="event-details">
-                            <span><i class="fas fa-clock"></i> 20:00-22:00</span>
-                            <span><i class="fas fa-map-marker-alt"></i> 线上直播</span>
-                        </div>
-                        <a href="#" class="btn btn-outline">报名参加</a>
-                    </div>
-                </div>
-                <div class="event-item">
-                    <div class="event-date">
-                        <span class="month">八月</span>
-                        <span class="day">20</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>DeFi生态系统探索</h3>
-                        <p>深入了解去中心化金融的最新发展和投资机会。</p>
-                        <div class="event-details">
-                            <span><i class="fas fa-clock"></i> 19:30-21:30</span>
-                            <span><i class="fas fa-map-marker-alt"></i> 线上直播</span>
-                        </div>
-                        <a href="#" class="btn btn-outline">报名参加</a>
-                    </div>
-                </div>
-                <div class="event-item">
-                    <div class="event-date">
-                        <span class="month">九月</span>
-                        <span class="day">05</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>加密货币交易策略分享会</h3>
-                        <p>专业交易者分享实用的交易策略和风险管理技巧。</p>
-                        <div class="event-details">
-                            <span><i class="fas fa-clock"></i> 20:00-22:00</span>
-                            <span><i class="fas fa-map-marker-alt"></i> 线上直播</span>
-                        </div>
-                        <a href="#" class="btn btn-outline">报名参加</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>Hodor<span>Crypto</span></h2>
-                    <p>一站式加密货币资讯平台</p>
-                </div>
-                <div class="footer-links">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="../index.html">首页</a></li>
-                        <li><a href="market.html">市场行情</a></li>
-                        <li><a href="news.html">最新资讯</a></li>
-                        <li><a href="guides.html">交易教程</a></li>
-                        <li><a href="announcements.html">活动公告</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>联系我们</h3>
-                    <p><i class="fas fa-envelope"></i> contact@hodorcrypto.com</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                    </div>
-                </div>
-            </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 HodorCrypto. 保留所有权利。</p>
-                <p>免责声明：本网站提供的信息仅供参考，不构成投资建议。</p>
+                <div class="footer-info">
+                    <p>&copy; 2024 HodorCrypto. 保留所有权利。</p>
+                    <div class="footer-badges">
+                        <span class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            安全认证
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-clock"></i>
+                            实时数据
+                        </span>
+                    </div>
+                </div>
+                <div class="data-source">
+                    <p>公告信息：官方发布 | 实时更新</p>
+                    <div class="api-status">
+                        <div class="status-dot active"></div>
+                        <span>系统状态正常</span>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/news-feed.js"></script>
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="../js/ultra-modern.js"></script>
     <script>
-        // 公告页面特定脚本
+        // 公告页面特定功能
         document.addEventListener('DOMContentLoaded', function() {
-            // 加载公告数据
-            loadAnnouncements();
+            // 分类筛选功能
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    filterAnnouncements(category);
+                });
+            });
             
-            // 设置筛选和排序事件监听器
-            setupAnnouncementFilterListeners();
+            // 搜索功能
+            const searchInput = document.getElementById('announcementSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    searchAnnouncements(searchTerm);
+                });
+            }
             
-            // 设置分页事件监听器
-            setupPaginationListeners();
+            // 排序功能
+            const sortSelect = document.getElementById('sortSelect');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', function() {
+                    const sortValue = this.value;
+                    sortAnnouncements(sortValue);
+                });
+            }
             
-            // 设置订阅表单事件监听器
-            setupSubscribeForm();
+            // 加载更多功能
+            const loadMoreBtn = document.getElementById('loadMoreAnnouncements');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    loadMoreAnnouncements();
+                });
+            }
+            
+            // 隐藏加载屏幕
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                }
+            }, 1500);
         });
         
-        // 设置公告筛选和排序事件监听器
-        function setupAnnouncementFilterListeners() {
-            const searchInput = document.getElementById('announcement-search');
-            const categoryFilter = document.getElementById('announcement-category');
-            const sortOption = document.getElementById('announcement-sort');
-            
-            if (searchInput) {
-                searchInput.addEventListener('input', filterAnnouncements);
-            }
-            
-            if (categoryFilter) {
-                categoryFilter.addEventListener('change', filterAnnouncements);
-            }
-            
-            if (sortOption) {
-                sortOption.addEventListener('change', filterAnnouncements);
-            }
+        // 筛选公告函数
+        function filterAnnouncements(category) {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const announcementCategory = item.querySelector('.announcement-category');
+                if (category === 'all' || announcementCategory.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         }
         
-        // 筛选公告
-        function filterAnnouncements() {
-            // 在实际项目中，这里会实现筛选逻辑
-            console.log('筛选公告');
-            
-            // 重新加载公告数据
-            loadAnnouncements();
+        // 搜索公告函数
+        function searchAnnouncements(searchTerm) {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const title = item.querySelector('.announcement-title').textContent.toLowerCase();
+                const excerpt = item.querySelector('.announcement-excerpt').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         }
         
-        // 设置分页事件监听器
-        function setupPaginationListeners() {
-            const prevPageBtn = document.getElementById('prev-page');
-            const nextPageBtn = document.getElementById('next-page');
+        // 排序公告函数
+        function sortAnnouncements(sortValue) {
+            const timeline = document.getElementById('announcementsTimeline');
+            const items = Array.from(timeline.querySelectorAll('.timeline-item'));
             
-            if (prevPageBtn) {
-                prevPageBtn.addEventListener('click', function() {
-                    if (!this.disabled) {
-                        const currentPage = parseInt(document.getElementById('current-page').textContent);
-                        if (currentPage > 1) {
-                            document.getElementById('current-page').textContent = currentPage - 1;
-                            loadAnnouncements();
-                            
-                            // 更新按钮状态
-                            updatePaginationButtons();
-                        }
-                    }
-                });
-            }
+            items.sort((a, b) => {
+                switch (sortValue) {
+                    case 'latest':
+                        // 按时间排序（最新优先）
+                        const timeA = a.querySelector('.announcement-date').textContent;
+                        const timeB = b.querySelector('.announcement-date').textContent;
+                        return timeA.localeCompare(timeB);
+                    case 'priority':
+                        // 按重要程度排序
+                        const priorityA = a.querySelector('.announcement-priority') ? 1 : 0;
+                        const priorityB = b.querySelector('.announcement-priority') ? 1 : 0;
+                        return priorityB - priorityA;
+                    case 'category':
+                        // 按分类排序
+                        const categoryA = a.querySelector('.announcement-category').textContent;
+                        const categoryB = b.querySelector('.announcement-category').textContent;
+                        return categoryA.localeCompare(categoryB);
+                    default:
+                        return 0;
+                }
+            });
             
-            if (nextPageBtn) {
-                nextPageBtn.addEventListener('click', function() {
-                    const currentPage = parseInt(document.getElementById('current-page').textContent);
-                    const totalPages = parseInt(document.getElementById('total-pages').textContent);
-                    
-                    if (currentPage < totalPages) {
-                        document.getElementById('current-page').textContent = currentPage + 1;
-                        loadAnnouncements();
-                        
-                        // 更新按钮状态
-                        updatePaginationButtons();
-                    }
-                });
-            }
-            
-            // 初始化分页按钮状态
-            updatePaginationButtons();
+            // 重新排列DOM元素
+            items.forEach(item => timeline.appendChild(item));
         }
         
-        // 更新分页按钮状态
-        function updatePaginationButtons() {
-            const currentPage = parseInt(document.getElementById('current-page').textContent);
-            const totalPages = parseInt(document.getElementById('total-pages').textContent);
+        // 加载更多公告函数
+        function loadMoreAnnouncements() {
+            // 模拟加载更多公告
+            const timeline = document.getElementById('announcementsTimeline');
+            const loadMoreBtn = document.getElementById('loadMoreAnnouncements');
             
-            document.getElementById('prev-page').disabled = currentPage <= 1;
-            document.getElementById('next-page').disabled = currentPage >= totalPages;
-        }
-        
-        // 设置订阅表单事件监听器
-        function setupSubscribeForm() {
-            const subscribeForm = document.querySelector('.subscribe-form');
+            // 显示加载状态
+            loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>加载中...</span>';
             
-            if (subscribeForm) {
-                subscribeForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const emailInput = this.querySelector('input[type="email"]');
-                    const email = emailInput.value;
-                    
-                    // 在实际项目中，这里会发送订阅请求到服务器
-                    console.log('订阅邮箱:', email);
-                    
-                    // 显示成功消息
-                    const formContainer = this.parentElement;
-                    formContainer.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> 订阅成功！您将收到最新公告和活动信息。</div>';
-                });
-            }
+            setTimeout(() => {
+                // 恢复按钮状态
+                loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i><span>加载更多公告</span>';
+                
+                // 这里可以添加实际的加载逻辑
+                console.log('加载更多公告...');
+            }, 1000);
         }
     </script>
 </body>
