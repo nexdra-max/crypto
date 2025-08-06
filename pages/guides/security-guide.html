@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加密货币安全防护指南 - Hodor加密货币资讯中心</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Hodor<span>Crypto</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">首页</a></li>
+                    <li><a href="../market.html">市场行情</a></li>
+                    <li><a href="../news.html">最新资讯</a></li>
+                    <li><a href="../guides.html" class="active">交易教程</a></li>
+                    <li><a href="../announcements.html">活动公告</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../../index.html">首页</a>
+                <span>/</span>
+                <a href="../guides.html">交易教程</a>
+                <span>/</span>
+                <span>安全防护指南</span>
+            </nav>
+            <h1>加密货币安全防护指南</h1>
+            <p>全面保护您的数字资产，远离黑客和诈骗威胁</p>
+            <div class="guide-meta">
+                <span><i class="fas fa-calendar"></i> 发布时间：2023-08-04</span>
+                <span><i class="fas fa-clock"></i> 阅读时间：15分钟</span>
+                <span><i class="fas fa-tag"></i> 安全必读</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="guide-content">
+        <div class="container">
+            <div class="guide-layout">
+                <div class="guide-main">
+                    <div class="guide-toc">
+                        <h3>目录</h3>
+                        <ul>
+                            <li><a href="#wallet-security">钱包安全</a></li>
+                            <li><a href="#exchange-security">交易所安全</a></li>
+                            <li><a href="#password-security">密码安全</a></li>
+                            <li><a href="#phishing-protection">防钓鱼攻击</a></li>
+                            <li><a href="#social-engineering">防社会工程学攻击</a></li>
+                            <li><a href="#backup-recovery">备份与恢复</a></li>
+                            <li><a href="#security-checklist">安全检查清单</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section" id="wallet-security">
+                        <h2>钱包安全</h2>
+                        
+                        <div class="wallet-types">
+                            <div class="wallet-card">
+                                <div class="wallet-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h3>热钱包（在线钱包）</h3>
+                                <div class="wallet-pros-cons">
+                                    <div class="pros">
+                                        <h4>优点：</h4>
+                                        <ul>
+                                            <li>使用方便，随时交易</li>
+                                            <li>支持多种加密货币</li>
+                                            <li>界面友好，功能丰富</li>
+                                        </ul>
+                                    </div>
+                                    <div class="cons">
+                                        <h4>缺点：</h4>
+                                        <ul>
+                                            <li>联网状态，存在被黑风险</li>
+                                            <li>依赖第三方服务</li>
+                                            <li>不适合存储大额资金</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="security-tips">
+                                    <h4>安全建议：</h4>
+                                    <ul>
+                                        <li>选择知名度高的钱包应用</li>
+                                        <li>开启所有安全功能</li>
+                                        <li>定期更新钱包软件</li>
+                                        <li>只存储小额日常交易资金</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="wallet-card">
+                                <div class="wallet-icon">
+                                    <i class="fas fa-hdd"></i>
+                                </div>
+                                <h3>冷钱包（离线钱包）</h3>
+                                <div class="wallet-pros-cons">
+                                    <div class="pros">
+                                        <h4>优点：</h4>
+                                        <ul>
+                                            <li>完全离线，安全性极高</li>
+                                            <li>不受网络攻击影响</li>
+                                            <li>适合长期存储</li>
+                                        </ul>
+                                    </div>
+                                    <div class="cons">
+                                        <h4>缺点：</h4>
+                                        <ul>
+                                            <li>使用不便，交易复杂</li>
+                                            <li>硬件成本较高</li>
+                                            <li>存在物理损坏风险</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="security-tips">
+                                    <h4>安全建议：</h4>
+                                    <ul>
+                                        <li>购买正品硬件钱包</li>
+                                        <li>在安全环境下初始化</li>
+                                        <li>妥善保管助记词</li>
+                                        <li>定期检查设备状态</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wallet-best-practices">
+                            <h3>钱包使用最佳实践</h3>
+                            <div class="practice-grid">
+                                <div class="practice-item">
+                                    <i class="fas fa-key"></i>
+                                    <h4>私钥管理</h4>
+                                    <p>私钥是您资产的唯一凭证，绝不能泄露给任何人。建议使用硬件钱包或纸钱包存储。</p>
+                                </div>
+                                <div class="practice-item">
+                                    <i class="fas fa-list-ol"></i>
+                                    <h4>助记词备份</h4>
+                                    <p>将助记词写在纸上，存放在安全的地方。不要拍照或存储在联网设备上。</p>
+                                </div>
+                                <div class="practice-item">
+                                    <i class="fas fa-layer-group"></i>
+                                    <h4>多重签名</h4>
+                                    <p>对于大额资金，考虑使用多重签名钱包，需要多个私钥才能完成交易。</p>
+                                </div>
+                                <div class="practice-item">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <h4>定期更新</h4>
+                                    <p>保持钱包软件为最新版本，及时修复安全漏洞。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section" id="exchange-security">
+                        <h2>交易所安全</h2>
+                        
+                        <div class="exchange-security-measures">
+                            <div class="security-measure">
+                                <div class="measure-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>双重认证（2FA）</h3>
+                                <p>启用Google Authenticator或短信验证，为账户添加额外保护层。</p>
+                                <div class="setup-steps">
+                                    <h4>设置步骤：</h4>
+                                    <ol>
+                                        <li>下载Google Authenticator应用</li>
+                                        <li>在交易所安全设置中启用2FA</li>
+                                        <li>扫描二维码绑定账户</li>
+                                        <li>保存备份码到安全位置</li>
+                                        <li>测试验证码是否正常工作</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="security-measure">
+                                <div class="measure-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <h3>提现白名单</h3>
+                                <p>设置提现地址白名单，只允许向预设地址转账。</p>
+                                <div class="whitelist-benefits">
+                                    <h4>白名单优势：</h4>
+                                    <ul>
+                                        <li>防止黑客转走资金</li>
+                                        <li>避免地址输入错误</li>
+                                        <li>增加提现安全性</li>
+                                        <li>可设置冷却期</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="security-measure">
+                                <div class="measure-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3>邮件通知</h3>
+                                <p>开启所有安全相关的邮件通知，及时发现异常活动。</p>
+                                <div class="notification-types">
+                                    <h4>重要通知类型：</h4>
+                                    <ul>
+                                        <li>登录通知</li>
+                                        <li>密码修改通知</li>
+                                        <li>提现申请通知</li>
+                                        <li>安全设置变更通知</li>
+                                        <li>API密钥创建通知</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exchange-selection">
+                            <h3>如何选择安全的交易所</h3>
+                            <div class="selection-criteria">
+                                <div class="criteria-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <h4>监管合规</h4>
+                                    <p>选择受到权威机构监管的交易所，如美国SEC、日本FSA等。</p>
+                                </div>
+                                <div class="criteria-item">
+                                    <i class="fas fa-history"></i>
+                                    <h4>运营历史</h4>
+                                    <p>优先选择运营时间长、声誉良好的老牌交易所。</p>
+                                </div>
+                                <div class="criteria-item">
+                                    <i class="fas fa-lock"></i>
+                                    <h4>安全措施</h4>
+                                    <p>了解交易所的安全措施，如冷存储比例、保险基金等。</p>
+                                </div>
+                                <div class="criteria-item">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <h4>交易量</h4>
+                                    <p>选择交易量大、流动性好的交易所，避免小交易所风险。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section" id="password-security">
+                        <h2>密码安全</h2>
+                        
+                        <div class="password-requirements">
+                            <h3>强密码要求</h3>
+                            <div class="password-checklist">
+                                <div class="checklist-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>至少12个字符长度</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>包含大小写字母</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>包含数字和特殊符号</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>避免使用个人信息</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>每个平台使用不同密码</span>
+                                </div>
+                                <div class="checklist-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>定期更换密码</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="password-manager">
+                            <h3>密码管理器推荐</h3>
+                            <div class="manager-comparison">
+                                <div class="manager-card">
+                                    <h4>1Password</h4>
+                                    <div class="rating">★★★★★</div>
+                                    <ul>
+                                        <li>安全性极高</li>
+                                        <li>界面友好</li>
+                                        <li>支持多平台</li>
+                                        <li>团队协作功能</li>
+                                    </ul>
+                                    <p class="price">价格：$2.99/月</p>
+                                </div>
+                                <div class="manager-card">
+                                    <h4>Bitwarden</h4>
+                                    <div class="rating">★★★★☆</div>
+                                    <ul>
+                                        <li>开源软件</li>
+                                        <li>免费版功能丰富</li>
+                                        <li>支持自托管</li>
+                                        <li>安全审计透明</li>
+                                    </ul>
+                                    <p class="price">价格：免费/付费$3/月</p>
+                                </div>
+                                <div class="manager-card">
+                                    <h4>LastPass</h4>
+                                    <div class="rating">★★★☆☆</div>
+                                    <ul>
+                                        <li>老牌密码管理器</li>
+                                        <li>功能完善</li>
+                                        <li>企业版功能强大</li>
+                                        <li>曾有安全事件</li>
+                                    </ul>
+                                    <p class="price">价格：$3/月</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="password-generator">
+                            <h3>密码生成器</h3>
+                            <div class="generator-tool">
+                                <div class="generator-options">
+                                    <label>
+                                        <input type="checkbox" id="uppercase" checked> 大写字母 (A-Z)
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="lowercase" checked> 小写字母 (a-z)
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="numbers" checked> 数字 (0-9)
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="symbols" checked> 特殊符号 (!@#$%^&*)
+                                    </label>
+                                    <label>
+                                        密码长度: <input type="range" id="length" min="8" max="32" value="16">
+                                        <span id="lengthValue">16</span>
+                                    </label>
+                                </div>
+                                <button onclick="generatePassword()" class="btn btn-primary">生成密码</button>
+                                <div class="generated-password">
+                                    <input type="text" id="generatedPassword" readonly>
+                                    <button onclick="copyPassword()" class="btn btn-outline">复制</button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-meter">
+                                        <div class="strength-bar" id="strengthBar"></div>
+                                    </div>
+                                    <span id="strengthText">密码强度：</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section" id="phishing-protection">
+                        <h2>防钓鱼攻击</h2>
+                        
+                        <div class="phishing-examples">
+                            <h3>常见钓鱼手段</h3>
+                            <div class="phishing-grid">
+                                <div class="phishing-card">
+                                    <div class="phishing-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <h4>钓鱼邮件</h4>
+                                    <p>伪装成官方邮件，诱导用户点击恶意链接或下载病毒文件。</p>
+                                    <div class="warning-signs">
+                                        <h5>识别特征：</h5>
+                                        <ul>
+                                            <li>发件人地址可疑</li>
+                                            <li>语法错误或拼写错误</li>
+                                            <li>紧急性语言</li>
+                                            <li>要求提供敏感信息</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="phishing-card">
+                                    <div class="phishing-icon">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <h4>虚假网站</h4>
+                                    <p>创建与正规网站极其相似的假网站，窃取用户登录信息。</p>
+                                    <div class="warning-signs">
+                                        <h5>识别特征：</h5>
+                                        <ul>
+                                            <li>域名拼写错误</li>
+                                            <li>缺少HTTPS加密</li>
+                                            <li>页面设计粗糙</li>
+                                            <li>URL结构异常</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="phishing-card">
+                                    <div class="phishing-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <h4>社交媒体诈骗</h4>
+                                    <p>在社交平台发布虚假信息，诱导用户参与诈骗活动。</p>
+                                    <div class="warning-signs">
+                                        <h5>识别特征：</h5>
+                                        <ul>
+                                            <li>承诺高额回报</li>
+                                            <li>要求先付费用</li>
+                                            <li>时间限制压力</li>
+                                            <li>缺乏官方认证</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="phishing-card">
+                                    <div class="phishing-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <h4>电话诈骗</h4>
+                                    <p>冒充客服或官方人员，通过电话获取用户敏感信息。</p>
+                                    <div class="warning-signs">
+                                        <h5>识别特征：</h5>
+                                        <ul>
+                                            <li>主动来电询问信息</li>
+                                            <li>要求提供密码</li>
+                                            <li>声称账户异常</li>
+                                            <li>催促立即行动</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="protection-measures">
+                            <h3>防护措施</h3>
+                            <div class="protection-list">
+                                <div class="protection-item">
+                                    <i class="fas fa-bookmark"></i>
+                                    <div>
+                                        <h4>使用书签</h4>
+                                        <p>将常用交易所网址保存为书签，避免通过搜索引擎或邮件链接访问。</p>
+                                    </div>
+                                </div>
+                                <div class="protection-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <div>
+                                        <h4>验证SSL证书</h4>
+                                        <p>确保网站使用HTTPS加密，检查SSL证书的有效性和颁发机构。</p>
+                                    </div>
+                                </div>
+                                <div class="protection-item">
+                                    <i class="fas fa-eye"></i>
+                                    <div>
+                                        <h4>仔细检查URL</h4>
+                                        <p>访问网站前仔细检查域名拼写，注意相似字符的替换。</p>
+                                    </div>
+                                </div>
+                                <div class="protection-item">
+                                    <i class="fas fa-shield-virus"></i>
+                                    <div>
+                                        <h4>使用安全软件</h4>
+                                        <p>安装可靠的杀毒软件和浏览器安全插件，实时防护恶意网站。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section" id="social-engineering">
+                        <h2>防社会工程学攻击</h2>
+                        
+                        <div class="social-engineering-tactics">
+                            <h3>常见攻击手段</h3>
+                            <div class="tactics-grid">
+                                <div class="tactic-card">
+                                    <h4>权威诱导</h4>
+                                    <p>冒充权威机构或知名人士，利用权威性获取信任。</p>
+                                    <div class="defense">
+                                        <strong>防御方法：</strong>独立验证身份，不轻信权威声明。
+                                    </div>
+                                </div>
+                                <div class="tactic-card">
+                                    <h4>紧急情况</h4>
+                                    <p>制造紧急情况，让受害者在压力下做出错误决定。</p>
+                                    <div class="defense">
+                                        <strong>防御方法：</strong>保持冷静，给自己时间思考和验证。
+                                    </div>
+                                </div>
+                                <div class="tactic-card">
+                                    <h4>互惠原理</h4>
+                                    <p>先给予小恩小惠，然后要求更大的回报。</p>
+                                    <div class="defense">
+                                        <strong>防御方法：</strong>理性分析，不因小利而承担大风险。
+                                    </div>
+                                </div>
+                                <div class="tactic-card">
+                                    <h4>从众心理</h4>
+                                    <p>声称很多人都在参与，利用从众心理诱导行动。</p>
+                                    <div class="defense">
+                                        <strong>防御方法：</strong>独立思考，不盲目跟风。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-engineering-prevention">
+                            <h3>预防策略</h3>
+                            <div class="prevention-principles">
+                                <div class="principle">
+                                    <div class="principle-icon">
+                                        <i class="fas fa-question-circle"></i>
+                                    </div>
+                                    <h4>保持怀疑</h4>
+                                    <p>对任何主动联系您的人保持怀疑态度，特别是涉及金钱或敏感信息时。</p>
+                                </div>
+                                <div class="principle">
+                                    <div class="principle-icon">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <h4>独立验证</h4>
+                                    <p>通过官方渠道独立验证信息的真实性，不依赖单一信息源。</p>
+                                </div>
+                                <div class="principle">
+                                    <div class="principle-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h4>给自己时间</h4>
+                                    <p>不要在压力下立即做决定，给自己时间思考和咨询他人。</p>
+                                </div>
+                                <div class="principle">
+                                    <div class="principle-icon">
+                                        <i class="fas fa-user-friends"></i>
+                                    </div>
+                                    <h4>寻求第二意见</h4>
+                                    <p>在做重要决定前，咨询信任的朋友或专业人士的意见。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section" id="backup-recovery">
+                        <h2>备份与恢复</h2>
+                        
+                        <div class="backup-strategy">
+                            <h3>3-2-1备份策略</h3>
+                            <div class="backup-rule">
+                                <div class="rule-item">
+                                    <div class="rule-number">3</div>
+                                    <div class="rule-content">
+                                        <h4>3份副本</h4>
+                                        <p>保持数据的3份副本（1份原件 + 2份备份）</p>
+                                    </div>
+                                </div>
+                                <div class="rule-item">
+                                    <div class="rule-number">2</div>
+                                    <div class="rule-content">
+                                        <h4>2种介质</h4>
+                                        <p>使用2种不同的存储介质（如硬盘和云存储）</p>
+                                    </div>
+                                </div>
+                                <div class="rule-item">
+                                    <div class="rule-number">1</div>
+                                    <div class="rule-content">
+                                        <h4>1份异地</h4>
+                                        <p>至少1份备份存储在异地（如银行保险箱）</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="backup-methods">
+                            <h3>备份方法</h3>
+                            <div class="method-grid">
+                                <div class="method-card">
+                                    <i class="fas fa-file-alt"></i>
+                                    <h4>纸质备份</h4>
+                                    <p>将助记词写在防水纸上，存放在安全的物理位置。</p>
+                                    <div class="method-pros">
+                                        <strong>优点：</strong>不受电子设备故障影响，永久保存。
+                                    </div>
+                                </div>
+                                <div class="method-card">
+                                    <i class="fas fa-hdd"></i>
+                                    <h4>硬件备份</h4>
+                                    <p>使用专用的加密硬盘或USB设备存储备份。</p>
+                                    <div class="method-pros">
+                                        <strong>优点：</strong>容量大，可加密，便于携带。
+                                    </div>
+                                </div>
+                                <div class="method-card">
+                                    <i class="fas fa-cloud"></i>
+                                    <h4>云端备份</h4>
+                                    <p>使用加密后的数据进行云端备份，增加一层保护。</p>
+                                    <div class="method-pros">
+                                        <strong>优点：</strong>异地存储，自动同步，易于访问。
+                                    </div>
+                                </div>
+                                <div class="method-card">
+                                    <i class="fas fa-stamp"></i>
+                                    <h4>金属备份</h4>
+                                    <p>将助记词刻在金属板上，防火防水防腐蚀。</p>
+                                    <div class="method-pros">
+                                        <strong>优点：</strong>极高耐久性，适合长期保存。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recovery-process">
+                            <h3>恢复流程</h3>
+                            <div class="recovery-steps">
+                                <div class="recovery-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>准备恢复环境</h4>
+                                        <p>使用安全的设备和网络环境进行恢复操作。</p>
+                                    </div>
+                                </div>
+                                <div class="recovery-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>输入助记词</h4>
+                                        <p>按正确顺序输入12或24个助记词。</p>
+                                    </div>
+                                </div>
+                                <div class="recovery-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>验证恢复</h4>
+                                        <p>确认钱包地址和余额是否正确。</p>
+                                    </div>
+                                </div>
+                                <div class="recovery-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>重新设置安全</h4>
+                                        <p>重新设置密码和安全措施。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section" id="security-checklist">
+                        <h2>安全检查清单</h2>
+                        
+                        <div class="checklist-categories">
+                            <div class="checklist-category">
+                                <h3>基础安全</h3>
+                                <div class="checklist">
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 使用强密码并定期更换
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 启用双重认证（2FA）
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 使用密码管理器
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 定期更新软件和系统
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 安装可靠的杀毒软件
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-category">
+                                <h3>钱包安全</h3>
+                                <div class="checklist">
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 备份助记词到安全位置
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 使用硬件钱包存储大额资金
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 验证钱包软件的真实性
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 定期检查钱包余额
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 不在公共场所使用钱包
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-category">
+                                <h3>交易安全</h3>
+                                <div class="checklist">
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 仔细核对转账地址
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 使用小额测试转账
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 设置提现白名单
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 开启交易通知
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 定期检查交易记录
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-category">
+                                <h3>防诈骗</h3>
+                                <div class="checklist">
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 通过官方渠道访问网站
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 验证网站SSL证书
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 不点击可疑邮件链接
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 不向他人透露私钥
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox"> 保持对高收益承诺的警惕
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-score">
+                            <h3>安全评分</h3>
+                            <div class="score-display">
+                                <div class="score-circle">
+                                    <span id="securityScore">0</span>
+                                    <span class="score-total">/20</span>
+                                </div>
+                                <div class="score-text">
+                                    <p id="scoreDescription">请完成上述检查项目</p>
+                                    <div class="score-bar">
+                                        <div class="score-fill" id="scoreFill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-navigation">
+                        <a href="withdraw-guide.html" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> 上一篇：出金指南
+                        </a>
+                        <a href="crypto-tax.html" class="btn btn-primary">
+                            下一篇：税务合规指南 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="guide-sidebar">
+                    <div class="related-guides">
+                        <h3>相关教程</h3>
+                        <ul>
+                            <li><a href="deposit-guide.html">加密货币入金完全指南</a></li>
+                            <li><a href="withdraw-guide.html">安全出金最佳实践</a></li>
+                            <li><a href="crypto-tax.html">加密货币税务合规指南</a></li>
+                            <li><a href="technical-analysis.html">技术分析入门</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="security-tools">
+                        <h3>推荐安全工具</h3>
+                        <div class="tool-list">
+                            <div class="tool-item">
+                                <h4>硬件钱包</h4>
+                                <ul>
+                                    <li>Ledger Nano X</li>
+                                    <li>Trezor Model T</li>
+                                    <li>KeepKey</li>
+                                </ul>
+                            </div>
+                            <div class="tool-item">
+                                <h4>密码管理器</h4>
+                                <ul>
+                                    <li>1Password</li>
+                                    <li>Bitwarden</li>
+                                    <li>Dashlane</li>
+                                </ul>
+                            </div>
+                            <div class="tool-item">
+                                <h4>安全软件</h4>
+                                <ul>
+                                    <li>Malwarebytes</li>
+                                    <li>Bitdefender</li>
+                                    <li>Kaspersky</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="emergency-contacts">
+                        <h3>紧急联系方式</h3>
+                        <div class="contact-list">
+                            <div class="contact-item">
+                                <h4>如果发现异常交易</h4>
+                                <p>立即联系交易所客服，冻结账户</p>
+                            </div>
+                            <div class="contact-item">
+                                <h4>如果钱包被盗</h4>
+                                <p>立即转移剩余资金到新钱包</p>
+                            </div>
+                            <div class="contact-item">
+                                <h4>如果遭遇诈骗</h4>
+                                <p>保存证据，报警处理</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Hodor<span>Crypto</span></h2>
+                    <p>一站式加密货币资讯平台</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="../../index.html">首页</a></li>
+                        <li><a href="../market.html">市场行情</a></li>
+                        <li><a href="../news.html">最新资讯</a></li>
+                        <li><a href="../guides.html">交易教程</a></li>
+                        <li><a href="../announcements.html">活动公告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系我们</h3>
+                    <p><i class="fas fa-envelope"></i> contact@hodorcrypto.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HodorCrypto. 保留所有权利。</p>
+                <p>免责声明：本网站提供的信息仅供参考，不构成投资建议。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        // 密码生成器功能
+        function generatePassword() {
+            const length = document.getElementById('length').value;
+            const uppercase = document.getElementById('uppercase').checked;
+            const lowercase = document.getElementById('lowercase').checked;
+            const numbers = document.getElementById('numbers').checked;
+            const symbols = document.getElementById('symbols').checked;
+            
+            let charset = '';
+            if (uppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (lowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
+            if (numbers) charset += '0123456789';
+            if (symbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            
+            if (charset === '') {
+                alert('请至少选择一种字符类型');
+                return;
+            }
+            
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                password += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+            
+            document.getElementById('generatedPassword').value = password;
+            updatePasswordStrength(password);
+        }
+        
+        function updatePasswordStrength(password) {
+            let score = 0;
+            let feedback = '';
+            
+            if (password.length >= 8) score += 1;
+            if (password.length >= 12) score += 1;
+            if (/[a-z]/.test(password)) score += 1;
+            if (/[A-Z]/.test(password)) score += 1;
+            if (/[0-9]/.test(password)) score += 1;
+            if (/[^A-Za-z0-9]/.test(password)) score += 1;
+            
+            const strengthBar = document.getElementById('strengthBar');
+            const strengthText = document.getElementById('strengthText');
+            
+            if (score < 3) {
+                feedback = '弱';
+                strengthBar.style.width = '25%';
+                strengthBar.style.backgroundColor = '#ff4757';
+            } else if (score < 5) {
+                feedback = '中等';
+                strengthBar.style.width = '50%';
+                strengthBar.style.backgroundColor = '#ffa502';
+            } else if (score < 6) {
+                feedback = '强';
+                strengthBar.style.width = '75%';
+                strengthBar.style.backgroundColor = '#2ed573';
+            } else {
+                feedback = '非常强';
+                strengthBar.style.width = '100%';
+                strengthBar.style.backgroundColor = '#1e90ff';
+            }
+            
+            strengthText.textContent = `密码强度：${feedback}`;
+        }
+        
+        function copyPassword() {
+            const passwordField = document.getElementById('generatedPassword');
+            passwordField.select();
+            document.execCommand('copy');
+            alert('密码已复制到剪贴板');
+        }
+        
+        // 长度滑块更新
+        document.getElementById('length').addEventListener('input', function() {
+            document.getElementById('lengthValue').textContent = this.value;
+        });
+        
+        // 安全检查清单评分
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            const scoreElement = document.getElementById('securityScore');
+            const scoreDescription = document.getElementById('scoreDescription');
+            const scoreFill = document.getElementById('scoreFill');
+            
+            function updateSecurityScore() {
+                const checkedCount = document.querySelectorAll('.checklist input[type="checkbox"]:checked').length;
+                const totalCount = checkboxes.length;
+                const percentage = (checkedCount / totalCount) * 100;
+                
+                scoreElement.textContent = checkedCount;
+                scoreFill.style.width = percentage + '%';
+                
+                if (percentage < 25) {
+                    scoreDescription.textContent = '安全等级：低 - 需要立即改进';
+                    scoreFill.style.backgroundColor = '#ff4757';
+                } else if (percentage < 50) {
+                    scoreDescription.textContent = '安全等级：中低 - 建议加强防护';
+                    scoreFill.style.backgroundColor = '#ffa502';
+                } else if (percentage < 75) {
+                    scoreDescription.textContent = '安全等级：中等 - 继续完善';
+                    scoreFill.style.backgroundColor = '#2ed573';
+                } else if (percentage < 90) {
+                    scoreDescription.textContent = '安全等级：良好 - 接近完美';
+                    scoreFill.style.backgroundColor = '#1e90ff';
+                } else {
+                    scoreDescription.textContent = '安全等级：优秀 - 防护完善';
+                    scoreFill.style.backgroundColor = '#5f27cd';
+                }
+            }
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateSecurityScore);
+            });
+            
+            updateSecurityScore();
+        });
+        
+        // 平滑滚动到锚点
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocLinks = document.querySelectorAll('.guide-toc a');
+            
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
