@@ -26,7 +26,67 @@
     <div class="price-ticker">
         <div class="ticker-wrapper">
             <div class="ticker-content" id="tickerContent">
-                <!-- 实时数据将通过JavaScript加载 -->
+                <div class="ticker-item">
+                    <span class="coin-name">BTC</span>
+                    <span class="coin-price">$97,234.56</span>
+                    <span class="coin-change positive">+2.34%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="coin-name">ETH</span>
+                    <span class="coin-price">$3,456.78</span>
+                    <span class="coin-change negative">-1.23%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="coin-name">BNB</span>
+                    <span class="coin-price">$678.90</span>
+                    <span class="coin-change positive">+0.56%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="coin-name">XRP</span>
+                    <span class="coin-price">$2.34</span>
+                    <span class="coin-change negative">-2.45%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="coin-name">ADA</span>
+                    <span class="coin-price">$0.89</span>
+                    <span class="coin-change positive">+1.78%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="coin-name">SOL</span>
+                    <span class="coin-price">$234.56</span>
+                    <span class="coin-change positive">+3.21%</span>
+                </div>
+                <!-- 重复内容以实现无缝滚动 -->
+                <div class="ticker-item">
+                    <span class="coin-name">BTC</span>
+                    <span class="coin-price">$97,234.56</span>
+                    <span class="coin-change positive">+2.34%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="coin-name">ETH</span>
+                    <span class="coin-price">$3,456.78</span>
+                    <span class="coin-change negative">-1.23%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="coin-name">BNB</span>
+                    <span class="coin-price">$678.90</span>
+                    <span class="coin-change positive">+0.56%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="coin-name">XRP</span>
+                    <span class="coin-price">$2.34</span>
+                    <span class="coin-change negative">-2.45%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="coin-name">ADA</span>
+                    <span class="coin-price">$0.89</span>
+                    <span class="coin-change positive">+1.78%</span>
+                </div>
+                <div class="ticker-item">
+                    <span class="coin-name">SOL</span>
+                    <span class="coin-price">$234.56</span>
+                    <span class="coin-change positive">+3.21%</span>
+                </div>
             </div>
         </div>
     </div>
@@ -118,15 +178,15 @@
                 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-number" data-target="50">50</div>
                         <div class="stat-label">支持币种</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-number" data-target="24">24</div>
                         <div class="stat-label">小时监控</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-target="99.9">0</div>
+                        <div class="stat-number" data-target="99.9">99.9</div>
                         <div class="stat-label">数据准确率%</div>
                     </div>
                 </div>
@@ -155,7 +215,101 @@
                     </div>
                     
                     <div class="crypto-cards" id="heroCryptoCards">
-                        <!-- 实时数据卡片将通过JavaScript加载 -->
+                        <div class="crypto-card">
+                            <div class="card-header">
+                                <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png" alt="Bitcoin" class="coin-icon">
+                                <div class="card-info">
+                                    <h4>Bitcoin</h4>
+                                    <span class="coin-symbol">BTC</span>
+                                </div>
+                            </div>
+                            <div class="card-data">
+                                <div class="price">$97,234.56</div>
+                                <div class="change positive">+2.34%</div>
+                            </div>
+                            <div class="card-stats">
+                                <div class="stat">
+                                    <span class="label">市值</span>
+                                    <span class="value">$1.92T</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">24h成交量</span>
+                                    <span class="value">$28.46B</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="crypto-card">
+                            <div class="card-header">
+                                <img src="https://assets.coingecko.com/coins/images/279/large/ethereum.png" alt="Ethereum" class="coin-icon">
+                                <div class="card-info">
+                                    <h4>Ethereum</h4>
+                                    <span class="coin-symbol">ETH</span>
+                                </div>
+                            </div>
+                            <div class="card-data">
+                                <div class="price">$3,456.78</div>
+                                <div class="change negative">-1.23%</div>
+                            </div>
+                            <div class="card-stats">
+                                <div class="stat">
+                                    <span class="label">市值</span>
+                                    <span class="value">$415.68B</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">24h成交量</span>
+                                    <span class="value">$15.68B</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="crypto-card">
+                            <div class="card-header">
+                                <img src="https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png" alt="BNB" class="coin-icon">
+                                <div class="card-info">
+                                    <h4>BNB</h4>
+                                    <span class="coin-symbol">BNB</span>
+                                </div>
+                            </div>
+                            <div class="card-data">
+                                <div class="price">$678.90</div>
+                                <div class="change positive">+0.56%</div>
+                            </div>
+                            <div class="card-stats">
+                                <div class="stat">
+                                    <span class="label">市值</span>
+                                    <span class="value">$98.77B</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">24h成交量</span>
+                                    <span class="value">$2.35B</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="crypto-card">
+                            <div class="card-header">
+                                <img src="https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png" alt="XRP" class="coin-icon">
+                                <div class="card-info">
+                                    <h4>XRP</h4>
+                                    <span class="coin-symbol">XRP</span>
+                                </div>
+                            </div>
+                            <div class="card-data">
+                                <div class="price">$2.34</div>
+                                <div class="change negative">-2.45%</div>
+                            </div>
+                            <div class="card-stats">
+                                <div class="stat">
+                                    <span class="label">市值</span>
+                                    <span class="value">$134.57B</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">24h成交量</span>
+                                    <span class="value">$3.46B</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="dashboard-chart">
@@ -253,12 +407,131 @@
                         <i class="fas fa-sync-alt"></i>
                         <span>刷新</span>
                     </button>
-                    <span class="last-update">最后更新: <span id="lastUpdate">--</span></span>
+                    <span class="last-update">最后更新: <span id="lastUpdate">刚刚</span></span>
                 </div>
             </div>
             
             <div class="market-grid" id="marketGrid">
-                <!-- 市场数据将通过JavaScript动态加载 -->
+                <!-- 市场数据卡片 -->
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png" alt="Bitcoin">
+                        </div>
+                        <div class="market-info">
+                            <h3>Bitcoin</h3>
+                            <span class="market-symbol">BTC</span>
+                        </div>
+                        <div class="market-rank">#1</div>
+                    </div>
+                    <div class="market-price">$97,234.56</div>
+                    <div class="market-change positive">+2.34%</div>
+                    <div class="market-stats">
+                        <div class="stat">
+                            <span class="label">市值</span>
+                            <span class="value">$1.92T</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">24h成交量</span>
+                            <span class="value">$28.46B</span>
+                        </div>
+                    </div>
+                    <div class="market-chart">
+                        <div class="mini-chart positive">
+                            <div class="chart-line"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <img src="https://assets.coingecko.com/coins/images/279/large/ethereum.png" alt="Ethereum">
+                        </div>
+                        <div class="market-info">
+                            <h3>Ethereum</h3>
+                            <span class="market-symbol">ETH</span>
+                        </div>
+                        <div class="market-rank">#2</div>
+                    </div>
+                    <div class="market-price">$3,456.78</div>
+                    <div class="market-change negative">-1.23%</div>
+                    <div class="market-stats">
+                        <div class="stat">
+                            <span class="label">市值</span>
+                            <span class="value">$415.68B</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">24h成交量</span>
+                            <span class="value">$15.68B</span>
+                        </div>
+                    </div>
+                    <div class="market-chart">
+                        <div class="mini-chart negative">
+                            <div class="chart-line"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <img src="https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png" alt="BNB">
+                        </div>
+                        <div class="market-info">
+                            <h3>BNB</h3>
+                            <span class="market-symbol">BNB</span>
+                        </div>
+                        <div class="market-rank">#3</div>
+                    </div>
+                    <div class="market-price">$678.90</div>
+                    <div class="market-change positive">+0.56%</div>
+                    <div class="market-stats">
+                        <div class="stat">
+                            <span class="label">市值</span>
+                            <span class="value">$98.77B</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">24h成交量</span>
+                            <span class="value">$2.35B</span>
+                        </div>
+                    </div>
+                    <div class="market-chart">
+                        <div class="mini-chart positive">
+                            <div class="chart-line"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <img src="https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png" alt="XRP">
+                        </div>
+                        <div class="market-info">
+                            <h3>XRP</h3>
+                            <span class="market-symbol">XRP</span>
+                        </div>
+                        <div class="market-rank">#4</div>
+                    </div>
+                    <div class="market-price">$2.34</div>
+                    <div class="market-change negative">-2.45%</div>
+                    <div class="market-stats">
+                        <div class="stat">
+                            <span class="label">市值</span>
+                            <span class="value">$134.57B</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">24h成交量</span>
+                            <span class="value">$3.46B</span>
+                        </div>
+                    </div>
+                    <div class="market-chart">
+                        <div class="mini-chart negative">
+                            <div class="chart-line"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="market-footer">
@@ -392,184 +665,3 @@
                     </div>
                     <a href="pages/guides/deposit-guide.html" class="guide-link">
                         <span>开始学习</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="guide-card beginner">
-                    <div class="guide-header">
-                        <div class="guide-icon">
-                            <i class="fas fa-upload"></i>
-                        </div>
-                        <div class="guide-level">新手</div>
-                    </div>
-                    <h3 class="guide-title">安全出金指南</h3>
-                    <p class="guide-description">安全的提现操作步骤和注意事项，避免常见错误</p>
-                    <div class="guide-features">
-                        <span class="feature">安全验证</span>
-                        <span class="feature">提现限额</span>
-                        <span class="feature">到账时间</span>
-                    </div>
-                    <a href="pages/guides/withdraw-guide.html" class="guide-link">
-                        <span>开始学习</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="guide-card intermediate">
-                    <div class="guide-header">
-                        <div class="guide-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="guide-level">进阶</div>
-                    </div>
-                    <h3 class="guide-title">技术分析教程</h3>
-                    <p class="guide-description">K线图解读、技术指标应用和实战交易策略</p>
-                    <div class="guide-features">
-                        <span class="feature">K线形态</span>
-                        <span class="feature">技术指标</span>
-                        <span class="feature">交易策略</span>
-                    </div>
-                    <a href="pages/guides/technical-analysis.html" class="guide-link">
-                        <span>开始学习</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="guide-card advanced">
-                    <div class="guide-header">
-                        <div class="guide-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="guide-level">专家</div>
-                    </div>
-                    <h3 class="guide-title">风险管理</h3>
-                    <p class="guide-description">仓位管理、止损策略和投资组合优化</p>
-                    <div class="guide-features">
-                        <span class="feature">仓位控制</span>
-                        <span class="feature">止损策略</span>
-                        <span class="feature">组合优化</span>
-                    </div>
-                    <a href="pages/guides/risk-management.html" class="guide-link">
-                        <span>开始学习</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="guides-footer">
-                <a href="pages/guides.html" class="btn btn-primary">
-                    <span>查看所有教程</span>
-                    <i class="fas fa-graduation-cap"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="footer-background">
-            <div class="footer-gradient"></div>
-        </div>
-        
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="brand-logo">
-                        <i class="fab fa-bitcoin"></i>
-                    </div>
-                    <div class="brand-info">
-                        <h3>Hodor<span class="brand-accent">Crypto</span></h3>
-                        <p>专业的加密货币资讯和交易指导平台</p>
-                        <div class="brand-stats">
-                            <div class="stat">
-                                <span class="stat-number">50+</span>
-                                <span class="stat-label">支持币种</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">24/7</span>
-                                <span class="stat-label">实时监控</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>平台功能</h4>
-                        <ul>
-                            <li><a href="pages/market.html">实时行情</a></li>
-                            <li><a href="pages/news.html">市场资讯</a></li>
-                            <li><a href="pages/guides.html">交易教程</a></li>
-                            <li><a href="pages/announcements.html">活动公告</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h4>学习中心</h4>
-                        <ul>
-                            <li><a href="pages/guides/deposit-guide.html">入金指南</a></li>
-                            <li><a href="pages/guides/withdraw-guide.html">出金指南</a></li>
-                            <li><a href="pages/guides/security-guide.html">安全防护</a></li>
-                            <li><a href="pages/guides/risk-management.html">风险管理</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="link-group">
-                        <h4>联系我们</h4>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>contact@hodorcrypto.com</span>
-                            </div>
-                            <div class="social-links">
-                                <a href="#" class="social-link twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="social-link telegram">
-                                    <i class="fab fa-telegram"></i>
-                                </a>
-                                <a href="#" class="social-link discord">
-                                    <i class="fab fa-discord"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-info">
-                    <p>&copy; 2024 HodorCrypto. 保留所有权利。</p>
-                    <div class="footer-badges">
-                        <span class="badge">
-                            <i class="fas fa-shield-alt"></i>
-                            安全认证
-                        </span>
-                        <span class="badge">
-                            <i class="fas fa-clock"></i>
-                            实时数据
-                        </span>
-                    </div>
-                </div>
-                <div class="data-source">
-                    <p>数据来源：CoinGecko API | 实时更新</p>
-                    <div class="api-status">
-                        <div class="status-dot active"></div>
-                        <span>API状态正常</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- 返回顶部按钮 -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- JavaScript -->
-    <script src="js/ultra-modern.js"></script>
-    <script src="js/real-data-loader.js"></script>
-</body>
-</html>

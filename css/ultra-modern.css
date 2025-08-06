@@ -1574,17 +1574,40 @@ section {
 
 /* 响应式设计 */
 @media (max-width: 1200px) {
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+    gap: 4rem;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-visual {
+    flex: 1;
+    max-width: 600px;
+}
+
+@media (max-width: 1024px) {
     .hero-container {
+        flex-direction: column;
+        text-align: center;
         gap: 3rem;
     }
     
-    .hero-title {
-        font-size: 3.5rem;
+    .hero-content,
+    .hero-visual {
+        max-width: 100%;
     }
-    
-    .section-title {
-        font-size: 2.5rem;
-    }
+}
 }
 
 @media (max-width: 992px) {
