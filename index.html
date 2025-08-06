@@ -8,47 +8,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <nav class="navbar">
         <div class="container">
-            <div class="logo">
-                <h1>Hodor<span>Crypto</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">首页</a></li>
-                    <li><a href="pages/market.html">市场行情</a></li>
-                    <li><a href="pages/news.html">最新资讯</a></li>
-                    <li><a href="pages/guides.html">交易教程</a></li>
-                    <li><a href="pages/announcements.html">活动公告</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
+            <a href="index.html" class="navbar-brand">Hodor<span style="color: #16c784;">Crypto</span></a>
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> 首页</a>
+                <a href="pages/market.html" class="nav-link"><i class="fas fa-chart-line"></i> 市场行情</a>
+                <a href="pages/news.html" class="nav-link"><i class="fas fa-newspaper"></i> 最新资讯</a>
+                <a href="pages/guides.html" class="nav-link"><i class="fas fa-graduation-cap"></i> 交易教程</a>
+                <a href="pages/announcements.html" class="nav-link"><i class="fas fa-bullhorn"></i> 活动公告</a>
             </div>
         </div>
-    </header>
+    </nav>
 
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2>一站式加密货币资讯平台</h2>
-                <p>实时行情、多交易所对比、最新资讯、交易技巧</p>
+                <h1>Hodor加密货币资讯中心</h1>
+                <p>实时行情追踪 • 多交易所数据对比 • 智能套利分析 • 专业交易指导</p>
                 <div class="hero-buttons">
-                    <a href="pages/market.html" class="btn btn-primary">查看行情</a>
-                    <a href="pages/guides.html" class="btn btn-secondary">交易教程</a>
+                    <a href="pages/market.html" class="btn btn-primary">
+                        <i class="fas fa-chart-line"></i> 查看实时行情
+                    </a>
+                    <a href="pages/guides.html" class="btn btn-secondary">
+                        <i class="fas fa-graduation-cap"></i> 学习交易技巧
+                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="price-ticker">
-        <div class="container">
-            <div class="ticker-container" id="price-ticker">
-                <!-- 价格行情将通过JavaScript动态加载 -->
-                <div class="ticker-loading">加载中...</div>
-            </div>
-            <div class="data-update-info">
-                数据更新时间: <span class="last-updated-time">加载中...</span>
             </div>
         </div>
     </section>
@@ -56,77 +41,29 @@
     <section class="market-overview">
         <div class="container">
             <h2 class="section-title">市场概览</h2>
-            <div class="market-cards">
-                <div class="market-card">
-                    <h3>比特币 (BTC)</h3>
-                    <div class="price" id="btc-price">$--,---</div>
-                    <div class="change" id="btc-change">--.--%</div>
-                    <div class="exchanges">
-                        <div class="exchange-item">
-                            <span class="exchange-name">币安</span>
-                            <span class="exchange-price" id="btc-binance">$--,---</span>
-                        </div>
-                        <div class="exchange-item">
-                            <span class="exchange-name">欧易</span>
-                            <span class="exchange-price" id="btc-okx">$--,---</span>
-                        </div>
-                        <div class="exchange-item">
-                            <span class="exchange-name">火币</span>
-                            <span class="exchange-price" id="btc-huobi">$--,---</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="market-card">
-                    <h3>以太坊 (ETH)</h3>
-                    <div class="price" id="eth-price">$--,---</div>
-                    <div class="change" id="eth-change">--.--%</div>
-                    <div class="exchanges">
-                        <div class="exchange-item">
-                            <span class="exchange-name">币安</span>
-                            <span class="exchange-price" id="eth-binance">$--,---</span>
-                        </div>
-                        <div class="exchange-item">
-                            <span class="exchange-name">欧易</span>
-                            <span class="exchange-price" id="eth-okx">$--,---</span>
-                        </div>
-                        <div class="exchange-item">
-                            <span class="exchange-name">火币</span>
-                            <span class="exchange-price" id="eth-huobi">$--,---</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="market-card">
-                    <h3>币安币 (BNB)</h3>
-                    <div class="price" id="bnb-price">$---</div>
-                    <div class="change" id="bnb-change">--.--%</div>
-                    <div class="exchanges">
-                        <div class="exchange-item">
-                            <span class="exchange-name">币安</span>
-                            <span class="exchange-price" id="bnb-binance">$---</span>
-                        </div>
-                        <div class="exchange-item">
-                            <span class="exchange-name">欧易</span>
-                            <span class="exchange-price" id="bnb-okx">$---</span>
-                        </div>
-                        <div class="exchange-item">
-                            <span class="exchange-name">火币</span>
-                            <span class="exchange-price" id="bnb-huobi">$---</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="market-cards" id="market-cards">
+                <!-- 市场数据将通过JavaScript动态加载 -->
             </div>
             <div class="view-more">
-                <a href="pages/market.html" class="btn btn-outline">查看更多币种</a>
+                <a href="pages/market.html" class="btn btn-outline">查看完整市场数据</a>
             </div>
         </div>
     </section>
 
-    <section class="latest-news">
+    <section class="arbitrage-section">
+        <div class="container">
+            <h2 class="section-title">套利机会</h2>
+            <div class="arbitrage-list" id="arbitrage-container">
+                <!-- 套利数据将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <section class="news-section">
         <div class="container">
             <h2 class="section-title">最新资讯</h2>
             <div class="news-grid" id="news-container">
-                <!-- 新闻将通过JavaScript动态加载 -->
-                <div class="news-loading">加载中...</div>
+                <!-- 新闻数据将通过JavaScript动态加载 -->
             </div>
             <div class="view-more">
                 <a href="pages/news.html" class="btn btn-outline">查看更多资讯</a>
@@ -134,68 +71,14 @@
         </div>
     </section>
 
-    <section class="guides-preview">
-        <div class="container">
-            <h2 class="section-title">热门教程</h2>
-            <div class="guides-grid">
-                <div class="guide-card">
-                    <div class="guide-image">
-                        <img src="images/guide-deposit.jpg" alt="入金教程">
-                    </div>
-                    <div class="guide-content">
-                        <h3>加密货币入金完全指南</h3>
-                        <p>从法币到加密货币的最佳途径，包含各大交易所入金方式对比</p>
-                        <a href="pages/guides/deposit-guide.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="guide-card">
-                    <div class="guide-image">
-                        <img src="images/guide-withdraw.jpg" alt="出金教程">
-                    </div>
-                    <div class="guide-content">
-                        <h3>安全出金最佳实践</h3>
-                        <p>如何安全、低成本地将加密货币兑换为法币，避免风险</p>
-                        <a href="pages/guides/withdraw-guide.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="guide-card">
-                    <div class="guide-image">
-                        <img src="images/guide-security.jpg" alt="安全教程">
-                    </div>
-                    <div class="guide-content">
-                        <h3>加密货币安全保护指南</h3>
-                        <p>保护您的数字资产安全，防范黑客和诈骗</p>
-                        <a href="pages/guides/security-guide.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="view-more">
-                <a href="pages/guides.html" class="btn btn-outline">查看更多教程</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="announcements-preview">
-        <div class="container">
-            <h2 class="section-title">活动公告</h2>
-            <div class="announcements-list" id="announcements-container">
-                <!-- 公告将通过JavaScript动态加载 -->
-                <div class="announcement-loading">加载中...</div>
-            </div>
-            <div class="view-more">
-                <a href="pages/announcements.html" class="btn btn-outline">查看更多公告</a>
-            </div>
-        </div>
-    </section>
-
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>Hodor<span>Crypto</span></h2>
-                    <p>一站式加密货币资讯平台</p>
+                <div class="footer-section">
+                    <h2>Hodor<span style="color: #16c784;">Crypto</span></h2>
+                    <p>专业的加密货币资讯平台，为您提供最准确、最及时的市场信息和交易指导。</p>
                 </div>
-                <div class="footer-links">
+                <div class="footer-section">
                     <h3>快速链接</h3>
                     <ul>
                         <li><a href="index.html">首页</a></li>
@@ -205,19 +88,18 @@
                         <li><a href="pages/announcements.html">活动公告</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
-                    <h3>联系我们</h3>
-                    <p><i class="fas fa-envelope"></i> contact@hodorcrypto.com</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                    </div>
+                <div class="footer-section">
+                    <h3>数据来源</h3>
+                    <ul>
+                        <li><a href="#">CoinGecko API</a></li>
+                        <li><a href="#">实时市场数据</a></li>
+                        <li><a href="#">每小时更新</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 HodorCrypto. 保留所有权利。</p>
-                <p>免责声明：本网站提供的信息仅供参考，不构成投资建议。</p>
+                <p><i class="fas fa-exclamation-triangle"></i> <strong>风险提示：</strong>本网站提供的信息仅供参考，不构成投资建议。加密货币投资存在高风险，请谨慎决策。</p>
             </div>
         </div>
     </footer>

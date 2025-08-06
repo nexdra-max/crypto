@@ -1,0 +1,182 @@
+name: 增强版加密货币数据自动更新
+
+on:
+  schedule:
+    # 每小时更新一次数据
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    # 允许手动触发
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/scripts/enhanced-data-fetcher.js'
+
+jobs:
+  update-crypto-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: 设置 Node.js 环境
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 安装依赖
+      run: |
+        npm init -y
+        npm install axios moment
+        
+    - name: 运行增强版数据获取脚本
+      env:
+        COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+        NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+      run: |
+        echo "🚀 开始运行增强版数据获取..."
+        node .github/scripts/enhanced-data-fetcher.js
+        echo "✅ 数据获取完成"
+        
+    - name: 检查数据文件
+      run: |
+        echo "📊 检查生成的数据文件..."
+        ls -la data/
+        echo "📈 市场数据文件大小:"
+        du -h data/enhanced-market-data.json || echo "文件不存在"
+        echo "🏢 交易所数据文件大小:"
+        du -h data/advanced-exchanges.json || echo "文件不存在"
+        echo "📰 新闻数据文件大小:"
+        du -h data/smart-news.json || echo "文件不存在"
+        echo "💰 套利数据文件大小:"
+        du -h data/advanced-arbitrage.json || echo "文件不存在"
+        
+    - name: 提交更新的数据
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # 检查是否有变更
+        if git diff --quiet && git diff --staged --quiet; then
+          echo "📝 没有数据变更，跳过提交"
+          exit 0
+        fi
+        
+        echo "📝 提交数据更新..."
+        git add data/
+        git add -A
+        
+        # 生成提交信息
+        TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+        COMMIT_MSG="🔄 自动更新加密货币数据 - $TIMESTAMP"
+        
+        # 添加数据统计到提交信息
+        if [ -f "data/comprehensive-report.json" ]; then
+          COINS_COUNT=$(grep -o '"total_coins":[0-9]*' data/comprehensive-report.json | grep -o '[0-9]*' || echo "0")
+          EXCHANGES_COUNT=$(grep -o '"total_exchanges":[0-9]*' data/comprehensive-report.json | grep -o '[0-9]*' || echo "0")
+          COMMIT_MSG="$COMMIT_MSG
+
+📊 数据统计:
+- 加密货币: $COINS_COUNT 个
+- 交易所: $EXCHANGES_COUNT 个
+- 更新时间: $TIMESTAMP
+- 数据版本: 2.0-enhanced"
+        fi
+        
+        git commit -m "$COMMIT_MSG"
+        
+    - name: 推送更改
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
+        
+    - name: 部署状态通知
+      if: always()
+      run: |
+        if [ ${{ job.status }} == 'success' ]; then
+          echo "✅ 数据更新和部署成功完成！"
+          echo "🌐 网站将在几分钟内更新: https://nexdra-max.github.io/crypto/"
+        else
+          echo "❌ 数据更新失败，请检查日志"
+        fi
+        
+  # 数据质量检查任务
+  data-quality-check:
+    runs-on: ubuntu-latest
+    needs: update-crypto-data
+    if: always()
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 数据质量检查
+      run: |
+        echo "🔍 开始数据质量检查..."
+        
+        # 检查必要的数据文件是否存在
+        REQUIRED_FILES=(
+          "data/enhanced-market-data.json"
+          "data/advanced-exchanges.json" 
+          "data/smart-news.json"
+          "data/advanced-arbitrage.json"
+          "data/last-updated.json"
+        )
+        
+        MISSING_FILES=()
+        for file in "${REQUIRED_FILES[@]}"; do
+          if [ ! -f "$file" ]; then
+            MISSING_FILES+=("$file")
+          fi
+        done
+        
+        if [ ${#MISSING_FILES[@]} -gt 0 ]; then
+          echo "❌ 缺少以下数据文件:"
+          printf '%s\n' "${MISSING_FILES[@]}"
+          exit 1
+        fi
+        
+        # 检查数据文件是否为空
+        for file in "${REQUIRED_FILES[@]}"; do
+          if [ ! -s "$file" ]; then
+            echo "❌ 数据文件为空: $file"
+            exit 1
+          fi
+        done
+        
+        # 检查JSON格式是否有效
+        echo "📋 验证JSON格式..."
+        for file in "${REQUIRED_FILES[@]}"; do
+          if ! python3 -m json.tool "$file" > /dev/null 2>&1; then
+            echo "❌ JSON格式无效: $file"
+            exit 1
+          fi
+        done
+        
+        echo "✅ 所有数据质量检查通过！"
+        
+        # 输出数据统计
+        echo "📊 数据统计摘要:"
+        if [ -f "data/enhanced-market-data.json" ]; then
+          MARKET_COUNT=$(grep -o '"id":' data/enhanced-market-data.json | wc -l)
+          echo "- 市场数据: $MARKET_COUNT 个币种"
+        fi
+        
+        if [ -f "data/advanced-exchanges.json" ]; then
+          EXCHANGE_COUNT=$(grep -o '"id":' data/advanced-exchanges.json | wc -l)
+          echo "- 交易所数据: $EXCHANGE_COUNT 个交易所"
+        fi
+        
+        if [ -f "data/smart-news.json" ]; then
+          NEWS_COUNT=$(grep -o '"id":' data/smart-news.json | wc -l)
+          echo "- 新闻数据: $NEWS_COUNT 条新闻"
+        fi
+        
+        if [ -f "data/advanced-arbitrage.json" ]; then
+          ARBITRAGE_COUNT=$(grep -o '"coin":' data/advanced-arbitrage.json | wc -l)
+          echo "- 套利机会: $ARBITRAGE_COUNT 个机会"
+        fi
