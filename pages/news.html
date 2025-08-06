@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最新资讯 - Hodor加密货币资讯中心</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Hodor<span>Crypto</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="market.html">市场行情</a></li>
+                    <li><a href="news.html" class="active">最新资讯</a></li>
+                    <li><a href="guides.html">交易教程</a></li>
+                    <li><a href="announcements.html">活动公告</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>最新资讯</h1>
+            <p>了解加密货币市场的最新动态</p>
+        </div>
+    </section>
+
+    <section class="news-filter">
+        <div class="container">
+            <div class="filter-controls">
+                <div class="search-box">
+                    <input type="text" id="news-search" placeholder="搜索资讯...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-dropdown">
+                    <select id="news-category">
+                        <option value="all">所有分类</option>
+                        <option value="market">市场动态</option>
+                        <option value="technology">技术发展</option>
+                        <option value="regulation">监管政策</option>
+                        <option value="defi">DeFi生态</option>
+                        <option value="nft">NFT市场</option>
+                    </select>
+                </div>
+                <div class="sort-dropdown">
+                    <select id="news-sort">
+                        <option value="latest">最新发布</option>
+                        <option value="popular">热门阅读</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-content">
+        <div class="container">
+            <div class="news-grid" id="news-container">
+                <!-- 新闻将通过JavaScript动态加载 -->
+                <div class="news-loading">加载中...</div>
+            </div>
+            
+            <div class="pagination">
+                <button class="pagination-btn" id="prev-page" disabled>
+                    <i class="fas fa-chevron-left"></i> 上一页
+                </button>
+                <span class="page-info">第 <span id="current-page">1</span> 页，共 <span id="total-pages">1</span> 页</span>
+                <button class="pagination-btn" id="next-page">
+                    下一页 <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>订阅资讯更新</h2>
+                <p>输入您的邮箱，获取最新加密货币资讯和市场分析</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="您的邮箱地址" required>
+                    <button type="submit" class="btn btn-primary">订阅</button>
+                </form>
+                <p class="newsletter-note">我们尊重您的隐私，绝不会向第三方分享您的信息</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Hodor<span>Crypto</span></h2>
+                    <p>一站式加密货币资讯平台</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="market.html">市场行情</a></li>
+                        <li><a href="news.html">最新资讯</a></li>
+                        <li><a href="guides.html">交易教程</a></li>
+                        <li><a href="announcements.html">活动公告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系我们</h3>
+                    <p><i class="fas fa-envelope"></i> contact@hodorcrypto.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HodorCrypto. 保留所有权利。</p>
+                <p>免责声明：本网站提供的信息仅供参考，不构成投资建议。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/news-feed.js"></script>
+    <script>
+        // 新闻页面特定脚本
+        document.addEventListener('DOMContentLoaded', function() {
+            // 加载新闻数据
+            loadNewsFeed();
+            
+            // 设置筛选和排序事件监听器
+            setupNewsFilterListeners();
+            
+            // 设置分页事件监听器
+            setupPaginationListeners();
+        });
+        
+        // 设置新闻筛选和排序事件监听器
+        function setupNewsFilterListeners() {
+            const searchInput = document.getElementById('news-search');
+            const categoryFilter = document.getElementById('news-category');
+            const sortOption = document.getElementById('news-sort');
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', filterNews);
+            }
+            
+            if (categoryFilter) {
+                categoryFilter.addEventListener('change', filterNews);
+            }
+            
+            if (sortOption) {
+                sortOption.addEventListener('change', filterNews);
+            }
+        }
+        
+        // 筛选新闻
+        function filterNews() {
+            // 在实际项目中，这里会实现筛选逻辑
+            console.log('筛选新闻');
+            
+            // 重新加载新闻数据
+            loadNewsFeed();
+        }
+        
+        // 设置分页事件监听器
+        function setupPaginationListeners() {
+            const prevPageBtn = document.getElementById('prev-page');
+            const nextPageBtn = document.getElementById('next-page');
+            
+            if (prevPageBtn) {
+                prevPageBtn.addEventListener('click', function() {
+                    if (!this.disabled) {
+                        const currentPage = parseInt(document.getElementById('current-page').textContent);
+                        if (currentPage > 1) {
+                            document.getElementById('current-page').textContent = currentPage - 1;
+                            loadNewsFeed();
+                            
+                            // 更新按钮状态
+                            updatePaginationButtons();
+                        }
+                    }
+                });
+            }
+            
+            if (nextPageBtn) {
+                nextPageBtn.addEventListener('click', function() {
+                    const currentPage = parseInt(document.getElementById('current-page').textContent);
+                    const totalPages = parseInt(document.getElementById('total-pages').textContent);
+                    
+                    if (currentPage < totalPages) {
+                        document.getElementById('current-page').textContent = currentPage + 1;
+                        loadNewsFeed();
+                        
+                        // 更新按钮状态
+                        updatePaginationButtons();
+                    }
+                });
+            }
+            
+            // 初始化分页按钮状态
+            updatePaginationButtons();
+        }
+        
+        // 更新分页按钮状态
+        function updatePaginationButtons() {
+            const currentPage = parseInt(document.getElementById('current-page').textContent);
+            const totalPages = parseInt(document.getElementById('total-pages').textContent);
+            
+            document.getElementById('prev-page').disabled = currentPage <= 1;
+            document.getElementById('next-page').disabled = currentPage >= totalPages;
+        }
+        
+        // 订阅表单提交处理
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.querySelector('.newsletter-form');
+            
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const emailInput = this.querySelector('input[type="email"]');
+                    const email = emailInput.value;
+                    
+                    // 在实际项目中，这里会发送订阅请求到服务器
+                    console.log('订阅邮箱:', email);
+                    
+                    // 显示成功消息
+                    const formContainer = this.parentElement;
+                    formContainer.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> 订阅成功！感谢您的关注。</div>';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

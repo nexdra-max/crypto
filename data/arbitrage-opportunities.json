@@ -1,0 +1,52 @@
+[
+  {
+    "coin": "bitcoin",
+    "buyExchange": "okex",
+    "buyPrice": 43150.25,
+    "sellExchange": "coinbase",
+    "sellPrice": 43350.75,
+    "priceDiff": 200.5,
+    "priceDiffPercentage": 0.465,
+    "timestamp": "2023-08-06T09:00:00.000Z"
+  },
+  {
+    "coin": "ethereum",
+    "buyExchange": "huobi",
+    "buyPrice": 2345.25,
+    "sellExchange": "binance",
+    "sellPrice": 2357.85,
+    "priceDiff": 12.6,
+    "priceDiffPercentage": 0.537,
+    "timestamp": "2023-08-06T09:00:00.000Z"
+  },
+  {
+    "coin": "ripple",
+    "buyExchange": "kucoin",
+    "buyPrice": 0.518,
+    "sellExchange": "bitfinex",
+    "sellPrice": 0.522,
+    "priceDiff": 0.004,
+    "priceDiffPercentage": 0.772,
+    "timestamp": "2023-08-06T09:00:00.000Z"
+  },
+  {
+    "coin": "cardano",
+    "buyExchange": "gate",
+    "buyPrice": 0.378,
+    "sellExchange": "kraken",
+    "sellPrice": 0.382,
+    "priceDiff": 0.004,
+    "priceDiffPercentage": 1.058,
+    "timestamp": "2023-08-06T09:00:00.000Z"
+  },
+  {
+    "coin": "solana",
+    "buyExchange": "mexc",
+    "buyPrice": 24.75,
+    "sellExchange": "gemini",
+    "sellPrice": 25.05,
+    "priceDiff": 0.3,
+    "priceDiffPercentage": 1.212,
+    "timestamp": "2023-08-06T09:00:00.000Z"
+  }
+]

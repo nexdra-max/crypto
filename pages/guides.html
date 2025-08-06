@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交易教程 - Hodor加密货币资讯中心</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Hodor<span>Crypto</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="market.html">市场行情</a></li>
+                    <li><a href="news.html">最新资讯</a></li>
+                    <li><a href="guides.html" class="active">交易教程</a></li>
+                    <li><a href="announcements.html">活动公告</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>交易教程</h1>
+            <p>专业的加密货币交易指南和技巧</p>
+        </div>
+    </section>
+
+    <section class="guides-filter">
+        <div class="container">
+            <div class="filter-controls">
+                <div class="search-box">
+                    <input type="text" id="guide-search" placeholder="搜索教程...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-dropdown">
+                    <select id="guide-category">
+                        <option value="all">所有分类</option>
+                        <option value="beginner">新手入门</option>
+                        <option value="trading">交易技巧</option>
+                        <option value="security">安全防护</option>
+                        <option value="defi">DeFi教程</option>
+                        <option value="mining">挖矿指南</option>
+                    </select>
+                </div>
+                <div class="sort-dropdown">
+                    <select id="guide-sort">
+                        <option value="latest">最新发布</option>
+                        <option value="popular">热门阅读</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="guides-content">
+        <div class="container">
+            <div class="guides-categories">
+                <h2>热门分类</h2>
+                <div class="category-cards">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>新手入门</h3>
+                        <p>加密货币基础知识，适合初学者</p>
+                        <a href="#" class="category-link" data-category="beginner">查看教程</a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3>交易技巧</h3>
+                        <p>交易策略、技术分析和风险管理</p>
+                        <a href="#" class="category-link" data-category="trading">查看教程</a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>安全防护</h3>
+                        <p>保护您的数字资产安全</p>
+                        <a href="#" class="category-link" data-category="security">查看教程</a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>DeFi教程</h3>
+                        <p>去中心化金融应用指南</p>
+                        <a href="#" class="category-link" data-category="defi">查看教程</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="featured-guides">
+                <h2>精选教程</h2>
+                <div class="guides-grid">
+                    <div class="guide-card">
+                        <div class="guide-image">
+                            <img src="../images/guide-deposit.jpg" alt="入金教程" onerror="this.src='../images/guide-placeholder.jpg'">
+                        </div>
+                        <div class="guide-content">
+                            <h3>加密货币入金完全指南</h3>
+                            <p>从法币到加密货币的最佳途径，包含各大交易所入金方式对比</p>
+                            <div class="guide-meta">
+                                <span class="guide-category">新手入门</span>
+                                <span class="guide-date">2023-08-05</span>
+                            </div>
+                            <a href="guides/deposit-guide.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-image">
+                            <img src="../images/guide-withdraw.jpg" alt="出金教程" onerror="this.src='../images/guide-placeholder.jpg'">
+                        </div>
+                        <div class="guide-content">
+                            <h3>安全出金最佳实践</h3>
+                            <p>如何安全、低成本地将加密货币兑换为法币，避免风险</p>
+                            <div class="guide-meta">
+                                <span class="guide-category">新手入门</span>
+                                <span class="guide-date">2023-08-04</span>
+                            </div>
+                            <a href="guides/withdraw-guide.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-image">
+                            <img src="../images/guide-security.jpg" alt="安全教程" onerror="this.src='../images/guide-placeholder.jpg'">
+                        </div>
+                        <div class="guide-content">
+                            <h3>加密货币安全保护指南</h3>
+                            <p>保护您的数字资产安全，防范黑客和诈骗</p>
+                            <div class="guide-meta">
+                                <span class="guide-category">安全防护</span>
+                                <span class="guide-date">2023-08-03</span>
+                            </div>
+                            <a href="guides/security-guide.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-image">
+                            <img src="../images/guide-trading.jpg" alt="交易教程" onerror="this.src='../images/guide-placeholder.jpg'">
+                        </div>
+                        <div class="guide-content">
+                            <h3>技术分析入门：K线图解读</h3>
+                            <p>学习如何解读K线图形态，把握市场趋势</p>
+                            <div class="guide-meta">
+                                <span class="guide-category">交易技巧</span>
+                                <span class="guide-date">2023-08-02</span>
+                            </div>
+                            <a href="guides/technical-analysis.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-image">
+                            <img src="../images/guide-defi.jpg" alt="DeFi教程" onerror="this.src='../images/guide-placeholder.jpg'">
+                        </div>
+                        <div class="guide-content">
+                            <h3>DeFi流动性挖矿指南</h3>
+                            <p>了解如何参与DeFi流动性挖矿，获取被动收益</p>
+                            <div class="guide-meta">
+                                <span class="guide-category">DeFi教程</span>
+                                <span class="guide-date">2023-08-01</span>
+                            </div>
+                            <a href="guides/defi-liquidity.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-image">
+                            <img src="../images/guide-wallet.jpg" alt="钱包教程" onerror="this.src='../images/guide-placeholder.jpg'">
+                        </div>
+                        <div class="guide-content">
+                            <h3>加密货币钱包选择指南</h3>
+                            <p>热钱包vs冷钱包：如何选择最适合您的钱包类型</p>
+                            <div class="guide-meta">
+                                <span class="guide-category">新手入门</span>
+                                <span class="guide-date">2023-07-30</span>
+                            </div>
+                            <a href="guides/wallet-guide.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="latest-guides">
+                <h2>最新教程</h2>
+                <div class="guides-list">
+                    <div class="guide-list-item">
+                        <div class="guide-list-image">
+                            <img src="../images/guide-nft.jpg" alt="NFT教程" onerror="this.src='../images/guide-placeholder.jpg'">
+                        </div>
+                        <div class="guide-list-content">
+                            <h3>NFT市场投资指南</h3>
+                            <p>非同质化代币(NFT)市场投资策略与风险分析</p>
+                            <div class="guide-meta">
+                                <span class="guide-category">投资指南</span>
+                                <span class="guide-date">2023-08-06</span>
+                            </div>
+                            <a href="guides/nft-investment.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="guide-list-item">
+                        <div class="guide-list-image">
+                            <img src="../images/guide-tax.jpg" alt="税务教程" onerror="this.src='../images/guide-placeholder.jpg'">
+                        </div>
+                        <div class="guide-list-content">
+                            <h3>加密货币税务合规指南</h3>
+                            <p>了解加密货币交易的税务申报要求和优化策略</p>
+                            <div class="guide-meta">
+                                <span class="guide-category">合规指南</span>
+                                <span class="guide-date">2023-08-05</span>
+                            </div>
+                            <a href="guides/crypto-tax.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="guide-list-item">
+                        <div class="guide-list-image">
+                            <img src="../images/guide-staking.jpg" alt="质押教程" onerror="this.src='../images/guide-placeholder.jpg'">
+                        </div>
+                        <div class="guide-list-content">
+                            <h3>加密货币质押收益指南</h3>
+                            <p>通过质押获取被动收益的完整指南</p>
+                            <div class="guide-meta">
+                                <span class="guide-category">投资指南</span>
+                                <span class="guide-date">2023-08-04</span>
+                            </div>
+                            <a href="guides/staking-guide.html" class="read-more">阅读教程 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="guide-request">
+        <div class="container">
+            <div class="request-content">
+                <h2>没有找到您需要的教程？</h2>
+                <p>告诉我们您想了解的内容，我们将为您创建专业的教程</p>
+                <form class="request-form">
+                    <input type="text" placeholder="请输入您感兴趣的主题" required>
+                    <input type="email" placeholder="您的邮箱地址" required>
+                    <button type="submit" class="btn btn-primary">提交请求</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Hodor<span>Crypto</span></h2>
+                    <p>一站式加密货币资讯平台</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="market.html">市场行情</a></li>
+                        <li><a href="news.html">最新资讯</a></li>
+                        <li><a href="guides.html">交易教程</a></li>
+                        <li><a href="announcements.html">活动公告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系我们</h3>
+                    <p><i class="fas fa-envelope"></i> contact@hodorcrypto.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HodorCrypto. 保留所有权利。</p>
+                <p>免责声明：本网站提供的信息仅供参考，不构成投资建议。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // 教程页面特定脚本
+        document.addEventListener('DOMContentLoaded', function() {
+            // 设置筛选和排序事件监听器
+            setupGuideFilterListeners();
+            
+            // 设置分类链接事件监听器
+            setupCategoryLinks();
+            
+            // 设置教程请求表单事件监听器
+            setupRequestForm();
+        });
+        
+        // 设置教程筛选和排序事件监听器
+        function setupGuideFilterListeners() {
+            const searchInput = document.getElementById('guide-search');
+            const categoryFilter = document.getElementById('guide-category');
+            const sortOption = document.getElementById('guide-sort');
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', filterGuides);
+            }
+            
+            if (categoryFilter) {
+                categoryFilter.addEventListener('change', filterGuides);
+            }
+            
+            if (sortOption) {
+                sortOption.addEventListener('change', filterGuides);
+            }
+        }
+        
+        // 筛选教程
+        function filterGuides() {
+            // 在实际项目中，这里会实现筛选逻辑
+            console.log('筛选教程');
+        }
+        
+        // 设置分类链接事件监听器
+        function setupCategoryLinks() {
+            const categoryLinks = document.querySelectorAll('.category-link');
+            
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // 设置分类筛选器
+                    const categoryFilter = document.getElementById('guide-category');
+                    if (categoryFilter) {
+                        categoryFilter.value = category;
+                        
+                        // 触发change事件
+                        const event = new Event('change');
+                        categoryFilter.dispatchEvent(event);
+                    }
+                    
+                    // 滚动到教程列表
+                    document.querySelector('.featured-guides').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+        
+        // 设置教程请求表单事件监听器
+        function setupRequestForm() {
+            const requestForm = document.querySelector('.request-form');
+            
+            if (requestForm) {
+                requestForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const topicInput = this.querySelector('input[type="text"]');
+                    const emailInput = this.querySelector('input[type="email"]');
+                    
+                    const topic = topicInput.value;
+                    const email = emailInput.value;
+                    
+                    // 在实际项目中，这里会发送请求到服务器
+                    console.log('教程请求:', topic, email);
+                    
+                    // 显示成功消息
+                    const formContainer = this.parentElement;
+                    formContainer.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> 请求已提交！我们会尽快处理您的请求。</div>';
+                });
+            }
+        }
+    </script>
+</body>
+</html>

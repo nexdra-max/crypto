@@ -1,0 +1,41 @@
+name: 更新加密货币数据
+
+on:
+  schedule:
+    # 每小时运行一次
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    # 允许手动触发
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: 设置Node.js环境
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          
+      - name: 安装依赖
+        run: |
+          npm install axios
+          npm install moment
+          
+      - name: 更新加密货币数据
+        run: node .github/scripts/update-crypto-data.js
+        env:
+          COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+        
+      - name: 提交更新的数据
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add data/
+          git commit -m "自动更新加密货币数据 $(date +'%Y-%m-%d %H:%M:%S')" || echo "没有变更需要提交"
+          git push
