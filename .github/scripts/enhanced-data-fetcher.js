@@ -1,4 +1,5 @@
         fs.writeFileSync(path.join(dataDir, 'comprehensive-report.json'), JSON.stringify(report, null, 2));
+        fs.writeFileSync(path.join(dataDir, 'comprehensive-report.json'), JSON.stringify(report, null, 2));
         
         // 更新最后更新时间
         const lastUpdated = {
@@ -21,6 +22,9 @@
     }
 }
 
+/**
+ * 计算整体市场情绪
+ */
 function getOverallMarketSentiment(marketData) {
     const positiveCount = marketData.filter(coin => (coin.price_change_percentage_24h || 0) > 0).length;
     const totalCount = marketData.length;
@@ -34,7 +38,17 @@ function getOverallMarketSentiment(marketData) {
 }
 
 // 执行主函数
-main().catch(error => {
-    console.error('增强版数据获取系统出错:', error);
-    process.exit(1);
-});
+if (require.main === module) {
+    main().catch(error => {
+        console.error('❌ 增强版数据获取系统出错:', error.message);
+        process.exit(1);
+    });
+}
+
+module.exports = {
+    main,
+    getEnhancedMarketData,
+    getAdvancedExchangeData,
+    getSmartNews,
+    generateAdvancedArbitrageAnalysis
+};
