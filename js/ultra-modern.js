@@ -370,40 +370,73 @@
         });
     }
 
+    // 防止重复初始化的标志
+    let isInitialized = false;
+    
     // 立即执行初始化
     function immediateInit() {
-        // 立即更新所有数据
-        updatePriceTicker();
-        updateHeroCryptoCards();
-        updateMarketGrid();
-        updateLastUpdateTime();
+        // 防止重复初始化
+        if (isInitialized) {
+            return;
+        }
+        isInitialized = true;
         
-        // 立即隐藏加载屏幕
-        hideLoadingScreen();
-        
-        // 初始化所有功能
-        initNavbar();
-        initBackToTop();
-        initThemeToggle();
-        initRefreshButton();
-        initTabs();
-        initCounterAnimation();
+        try {
+            // 立即更新所有数据
+            updatePriceTicker();
+            updateHeroCryptoCards();
+            updateMarketGrid();
+            updateLastUpdateTime();
+            
+            // 立即隐藏加载屏幕
+            hideLoadingScreen();
+            
+            // 初始化所有功能
+            initNavbar();
+            initBackToTop();
+            initThemeToggle();
+            initRefreshButton();
+            initTabs();
+            initCounterAnimation();
+            
+            console.log('✅ HodorCrypto 初始化完成');
+        } catch (error) {
+            console.error('❌ 初始化出错:', error);
+        }
     }
 
     // DOM加载完成后立即执行
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', immediateInit);
     } else {
-        immediateInit();
+        // 使用 setTimeout 确保DOM完全准备好
+        setTimeout(immediateInit, 0);
     }
 
-    // 定期刷新数据
-    setInterval(() => {
-        updatePriceTicker();
-        updateHeroCryptoCards();
-        updateMarketGrid();
-        updateLastUpdateTime();
-    }, 30000);
+    // 定期刷新数据 (每30秒)
+    let refreshInterval;
+    function startDataRefresh() {
+        // 清除之前的定时器
+        if (refreshInterval) {
+            clearInterval(refreshInterval);
+        }
+        
+        refreshInterval = setInterval(() => {
+            try {
+                updatePriceTicker();
+                updateHeroCryptoCards();
+                updateMarketGrid();
+                updateLastUpdateTime();
+            } catch (error) {
+                console.error('数据刷新出错:', error);
+                // 如果出错，停止定时器防止循环错误
+                clearInterval(refreshInterval);
+            }
+        }, 30000);
+    }
+    
+    // 启动数据刷新
+    startDataRefresh();
 
     // 添加CSS动画
     const style = document.createElement('style');

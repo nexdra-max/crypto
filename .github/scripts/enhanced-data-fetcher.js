@@ -1,4 +1,4 @@
-        fs.writeFileSync(path.join(dataDir, 'comprehensive-report.json'), JSON.stringify(report, null, 2));
+        // 保存综合报告
         fs.writeFileSync(path.join(dataDir, 'comprehensive-report.json'), JSON.stringify(report, null, 2));
         
         // 更新最后更新时间
