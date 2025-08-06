@@ -1,0 +1,791 @@
+/* 增强版加密货币功能样式 */
+
+/* 市场警报样式 */
+.alert-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-left: 4px solid;
+    transition: all 0.3s ease;
+}
+
+.alert-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.alert-item.bullish {
+    border-left-color: #22c55e;
+}
+
+.alert-item.bearish {
+    border-left-color: #ef4444;
+}
+
+.alert-item.neutral {
+    border-left-color: #f59e0b;
+}
+
+.alert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.alert-coin {
+    font-weight: 600;
+    color: #6366f1;
+}
+
+.alert-confidence {
+    background: rgba(99, 102, 241, 0.2);
+    color: #6366f1;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.alert-message {
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+}
+
+.alert-time {
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+/* 交易信号样式 */
+.signal-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.signal-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.signal-card.buy {
+    border-left: 4px solid #22c55e;
+}
+
+.signal-card.sell {
+    border-left: 4px solid #ef4444;
+}
+
+.signal-card.hold {
+    border-left: 4px solid #f59e0b;
+}
+
+.signal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.signal-header h4 {
+    margin: 0;
+    color: #f1f5f9;
+}
+
+.signal-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.signal-badge.buy {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+.signal-badge.sell {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.signal-badge.hold {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+.signal-strength {
+    color: #94a3b8;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.signal-details {
+    margin-bottom: 1rem;
+}
+
+.signal-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #e2e8f0;
+}
+
+.signal-row .target {
+    color: #22c55e;
+    font-weight: 600;
+}
+
+.signal-row .stop-loss {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.signal-indicators {
+    display: flex;
+    gap: 1rem;
+}
+
+.indicator {
+    background: rgba(99, 102, 241, 0.2);
+    color: #6366f1;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+/* 投资组合样式 */
+.portfolio-summary {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.portfolio-total h3 {
+    margin: 0 0 0.5rem 0;
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+.total-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 0.5rem;
+}
+
+.total-change {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.total-change.positive {
+    color: #22c55e;
+}
+
+.total-change.negative {
+    color: #ef4444;
+}
+
+.portfolio-holdings {
+    display: grid;
+    gap: 1rem;
+}
+
+.holding-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.holding-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.holding-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.holding-coin {
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.holding-amount {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.holding-value {
+    text-align: right;
+}
+
+.holding-value .value {
+    display: block;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.holding-value .percentage {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.holding-change {
+    font-weight: 600;
+    text-align: right;
+}
+
+.holding-change.positive {
+    color: #22c55e;
+}
+
+.holding-change.negative {
+    color: #ef4444;
+}
+
+/* 新闻聚合器样式 */
+.news-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid;
+    transition: all 0.3s ease;
+}
+
+.news-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.news-item.bullish {
+    border-left-color: #22c55e;
+}
+
+.news-item.bearish {
+    border-left-color: #ef4444;
+}
+
+.news-item.neutral {
+    border-left-color: #f59e0b;
+}
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.news-category {
+    background: rgba(99, 102, 241, 0.2);
+    color: #6366f1;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.news-impact {
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.news-impact.high {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.news-impact.medium {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+.news-impact.low {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+.news-title {
+    color: #f1f5f9;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.news-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+.news-sentiment {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sentiment-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.sentiment-indicator.bullish {
+    background: #22c55e;
+}
+
+.sentiment-indicator.bearish {
+    background: #ef4444;
+}
+
+.sentiment-indicator.neutral {
+    background: #f59e0b;
+}
+
+.sentiment-text {
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+/* 价格警报样式 */
+.price-alert-form {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.price-alert-form h4 {
+    margin: 0 0 1rem 0;
+    color: #f1f5f9;
+}
+
+.alert-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.alert-select,
+.alert-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    color: #f1f5f9;
+    font-size: 0.9rem;
+}
+
+.alert-select:focus,
+.alert-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.alert-btn {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.alert-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+}
+
+.active-alerts h4 {
+    margin: 0 0 1rem 0;
+    color: #f1f5f9;
+}
+
+.alert-list {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.alert-list .alert-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.alert-list .alert-coin {
+    font-weight: 600;
+    color: #6366f1;
+}
+
+.alert-condition {
+    color: #e2e8f0;
+}
+
+.alert-status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.alert-status.active {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+.remove-alert {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.remove-alert:hover {
+    background: rgba(239, 68, 68, 0.4);
+    transform: scale(1.1);
+}
+
+/* 技术指标样式 */
+.indicator-item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.indicator-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.indicator-name {
+    color: #f1f5f9;
+    font-weight: 500;
+}
+
+.indicator-value {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.indicator-signal {
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.indicator-signal.bullish {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+.indicator-signal.bearish {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.indicator-signal.neutral {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+/* 市场情绪样式 */
+.sentiment-overview {
+    margin-bottom: 2rem;
+}
+
+.sentiment-overview h4 {
+    margin: 0 0 1rem 0;
+    color: #f1f5f9;
+}
+
+.sentiment-gauge {
+    text-align: center;
+}
+
+.gauge-container {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px 100px 0 0;
+    overflow: hidden;
+}
+
+.gauge-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ef4444, #f59e0b, #22c55e);
+    transition: width 1s ease;
+}
+
+.gauge-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.gauge-label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.sentiment-details {
+    display: grid;
+    gap: 1rem;
+}
+
+.sentiment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.sentiment-item span:first-child {
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+.sentiment-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    max-width: 200px;
+    margin-left: 1rem;
+}
+
+.bar-fill {
+    height: 8px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.bar-value {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    min-width: 40px;
+}
+
+/* 交易量分析样式 */
+.volume-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.volume-item {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.volume-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.volume-exchange {
+    color: #f1f5f9;
+    font-weight: 600;
+}
+
+.volume-bar {
+    position: relative;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.volume-bar .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.volume-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+}
+
+.volume-amount {
+    color: #f1f5f9;
+    font-weight: 600;
+}
+
+.volume-percentage {
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .alert-inputs {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .alert-inputs .alert-btn {
+        justify-self: stretch;
+    }
+    
+    .portfolio-summary {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .holding-item {
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+    }
+    
+    .volume-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .sentiment-item {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .sentiment-bar {
+        margin: 0;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .signal-card {
+        padding: 1rem;
+    }
+    
+    .signal-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .signal-indicators {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .gauge-container {
+        width: 150px;
+        height: 75px;
+    }
+    
+    .gauge-value {
+        font-size: 1.5rem;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.alert-item,
+.signal-card,
+.news-item,
+.holding-item,
+.volume-item,
+.indicator-item {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.live-indicator {
+    animation: pulse 2s infinite;
+}
+
+.sentiment-gauge {
+    animation: slideIn 1s ease forwards;
+}

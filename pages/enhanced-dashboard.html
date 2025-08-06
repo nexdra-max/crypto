@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HodorCrypto - 增强版仪表板</title>
+    <link rel="stylesheet" href="../css/ultra-modern.css">
+    <link rel="stylesheet" href="../css/enhanced-crypto-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Hodor<span class="brand-accent">Crypto</span></h1>
+                    <span class="brand-tagline">专业数字货币平台</span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="enhanced-dashboard.html" class="nav-link active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>增强仪表板</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="market.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>市场行情</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link">
+                        <i class="fas fa-newspaper"></i>
+                        <span>最新资讯</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="guides.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>交易教程</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 增强功能仪表板 -->
+    <main class="enhanced-dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>增强版加密货币仪表板</h1>
+                <p>专业级交易分析和投资管理工具</p>
+            </div>
+
+            <!-- 功能面板网格 -->
+            <div class="dashboard-grid">
+                <!-- 市场警报面板 -->
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 市场警报</h3>
+                        <span class="panel-badge">实时</span>
+                    </div>
+                    <div class="panel-content" id="marketAlerts">
+                        <!-- 市场警报内容将通过JavaScript加载 -->
+                    </div>
+                </div>
+
+                <!-- 交易信号面板 -->
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-chart-line"></i> 交易信号</h3>
+                        <span class="panel-badge">AI分析</span>
+                    </div>
+                    <div class="panel-content" id="tradingSignals">
+                        <!-- 交易信号内容将通过JavaScript加载 -->
+                    </div>
+                </div>
+
+                <!-- 投资组合追踪面板 -->
+                <div class="dashboard-panel large">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-wallet"></i> 投资组合追踪</h3>
+                        <span class="panel-badge">个人</span>
+                    </div>
+                    <div class="panel-content" id="portfolioTracker">
+                        <!-- 投资组合内容将通过JavaScript加载 -->
+                    </div>
+                </div>
+
+                <!-- 加密货币新闻面板 -->
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-newspaper"></i> 智能新闻</h3>
+                        <span class="panel-badge">聚合</span>
+                    </div>
+                    <div class="panel-content" id="cryptoNews">
+                        <!-- 新闻内容将通过JavaScript加载 -->
+                    </div>
+                </div>
+
+                <!-- 价格警报面板 -->
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-bell"></i> 价格警报</h3>
+                        <span class="panel-badge">自定义</span>
+                    </div>
+                    <div class="panel-content" id="priceAlerts">
+                        <!-- 价格警报内容将通过JavaScript加载 -->
+                    </div>
+                </div>
+
+                <!-- 技术指标面板 -->
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-chart-bar"></i> 技术指标</h3>
+                        <span class="panel-badge">专业</span>
+                    </div>
+                    <div class="panel-content" id="technicalIndicators">
+                        <!-- 技术指标内容将通过JavaScript加载 -->
+                    </div>
+                </div>
+
+                <!-- 市场情绪面板 -->
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-heart"></i> 市场情绪</h3>
+                        <span class="panel-badge">分析</span>
+                    </div>
+                    <div class="panel-content" id="marketSentiment">
+                        <!-- 市场情绪内容将通过JavaScript加载 -->
+                    </div>
+                </div>
+
+                <!-- 交易量分析面板 -->
+                <div class="dashboard-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-chart-area"></i> 交易量分析</h3>
+                        <span class="panel-badge">深度</span>
+                    </div>
+                    <div class="panel-content" id="volumeAnalysis">
+                        <!-- 交易量分析内容将通过JavaScript加载 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <div class="brand-info">
+                        <h3>Hodor<span class="brand-accent">Crypto</span></h3>
+                        <p>专业的加密货币资讯和交易指导平台</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>增强功能</h4>
+                        <ul>
+                            <li><a href="#marketAlerts">市场警报</a></li>
+                            <li><a href="#tradingSignals">交易信号</a></li>
+                            <li><a href="#portfolioTracker">投资组合</a></li>
+                            <li><a href="#technicalIndicators">技术指标</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>分析工具</h4>
+                        <ul>
+                            <li><a href="#marketSentiment">市场情绪</a></li>
+                            <li><a href="#volumeAnalysis">交易量分析</a></li>
+                            <li><a href="#priceAlerts">价格警报</a></li>
+                            <li><a href="#cryptoNews">智能新闻</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2024 HodorCrypto. 保留所有权利。</p>
+                    <div class="footer-badges">
+                        <span class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            专业分析
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-clock"></i>
+                            实时数据
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="../js/ultra-modern.js"></script>
+    <script src="../js/enhanced-crypto-features.js"></script>
+
+    <style>
+        /* 增强仪表板专用样式 */
+        .enhanced-dashboard {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            padding: 2rem 0;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .dashboard-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-header p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .dashboard-panel {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-panel:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .dashboard-panel.large {
+            grid-column: span 2;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .panel-header h3 {
+            margin: 0;
+            color: #f1f5f9;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .panel-header i {
+            color: #6366f1;
+        }
+
+        .panel-badge {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .panel-content {
+            min-height: 200px;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-panel.large {
+                grid-column: span 1;
+            }
+            
+            .dashboard-header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .dashboard-panel {
+                padding: 1.5rem;
+            }
+            
+            .dashboard-header {
+                padding: 1rem 0;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</body>
+</html>
