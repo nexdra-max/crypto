@@ -3,244 +3,711 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>最新资讯 - Hodor加密货币资讯中心</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/enhanced-ui.css">
+    <title>最新资讯 - HodorCrypto 专业加密货币平台</title>
+    <link rel="stylesheet" href="../css/ultra-modern.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Hodor<span>Crypto</span></h1>
+    <!-- 加载动画 -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="crypto-logo">
+                <i class="fas fa-newspaper"></i>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="../index.html">首页</a></li>
-                    <li><a href="market.html">市场行情</a></li>
-                    <li><a href="news.html" class="active">最新资讯</a></li>
-                    <li><a href="guides.html">交易教程</a></li>
-                    <li><a href="announcements.html">活动公告</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
+            <div class="loading-text">加载最新资讯</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
             </div>
         </div>
-    </header>
+    </div>
 
-    <section class="page-header">
-        <div class="container">
-            <h1>最新资讯</h1>
-            <p>了解加密货币市场的最新动态</p>
-        </div>
-    </section>
-
-    <section class="news-filter">
-        <div class="container">
-            <div class="filter-controls">
-                <div class="search-box">
-                    <input type="text" id="news-search" placeholder="搜索资讯...">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="filter-dropdown">
-                    <select id="news-category">
-                        <option value="all">所有分类</option>
-                        <option value="market">市场动态</option>
-                        <option value="technology">技术发展</option>
-                        <option value="regulation">监管政策</option>
-                        <option value="defi">DeFi生态</option>
-                        <option value="nft">NFT市场</option>
-                    </select>
-                </div>
-                <div class="sort-dropdown">
-                    <select id="news-sort">
-                        <option value="latest">最新发布</option>
-                        <option value="popular">热门阅读</option>
-                    </select>
-                </div>
+    <!-- 顶部实时价格条 -->
+    <div class="price-ticker">
+        <div class="ticker-wrapper">
+            <div class="ticker-content" id="tickerContent">
+                <!-- 实时数据将通过JavaScript加载 -->
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="news-content">
-        <div class="container">
-            <div class="news-grid" id="news-container">
-                <!-- 新闻将通过JavaScript动态加载 -->
-                <div class="news-loading">加载中...</div>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Hodor<span class="brand-accent">Crypto</span></h1>
+                    <span class="brand-tagline">专业数字货币平台</span>
+                </div>
             </div>
             
-            <div class="pagination">
-                <button class="pagination-btn" id="prev-page" disabled>
-                    <i class="fas fa-chevron-left"></i> 上一页
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="market.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>市场行情</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link active">
+                        <i class="fas fa-newspaper"></i>
+                        <span>最新资讯</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="guides.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>交易教程</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="announcements.html" class="nav-link">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>活动公告</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
                 </button>
-                <span class="page-info">第 <span id="current-page">1</span> 页，共 <span id="total-pages">1</span> 页</span>
-                <button class="pagination-btn" id="next-page">
-                    下一页 <i class="fas fa-chevron-right"></i>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>订阅资讯更新</h2>
-                <p>输入您的邮箱，获取最新加密货币资讯和市场分析</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="您的邮箱地址" required>
-                    <button type="submit" class="btn btn-primary">订阅</button>
-                </form>
-                <p class="newsletter-note">我们尊重您的隐私，绝不会向第三方分享您的信息</p>
-            </div>
+    <!-- 页面头部 -->
+    <section class="page-header">
+        <div class="header-background">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
         </div>
-    </section>
-
-    <footer>
+        
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>Hodor<span>Crypto</span></h2>
-                    <p>一站式加密货币资讯平台</p>
+            <div class="header-content">
+                <div class="header-badge">
+                    <i class="fas fa-globe"></i>
+                    <span>全球加密货币资讯</span>
                 </div>
-                <div class="footer-links">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="../index.html">首页</a></li>
-                        <li><a href="market.html">市场行情</a></li>
-                        <li><a href="news.html">最新资讯</a></li>
-                        <li><a href="guides.html">交易教程</a></li>
-                        <li><a href="announcements.html">活动公告</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>联系我们</h3>
-                    <p><i class="fas fa-envelope"></i> contact@hodorcrypto.com</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
+                
+                <h1 class="page-title">
+                    最新
+                    <span class="gradient-text">行业资讯</span>
+                </h1>
+                
+                <p class="page-description">
+                    获取最新的加密货币行业动态、市场分析和政策法规，掌握投资先机
+                </p>
+                
+                <div class="news-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">实时更新</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">每日资讯</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">专业编辑</div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 新闻分类导航 -->
+    <section class="news-categories">
+        <div class="container">
+            <div class="categories-nav">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-list"></i>
+                    <span>全部资讯</span>
+                </button>
+                <button class="category-btn" data-category="market">
+                    <i class="fas fa-chart-line"></i>
+                    <span>市场分析</span>
+                </button>
+                <button class="category-btn" data-category="policy">
+                    <i class="fas fa-gavel"></i>
+                    <span>政策法规</span>
+                </button>
+                <button class="category-btn" data-category="technology">
+                    <i class="fas fa-microchip"></i>
+                    <span>技术发展</span>
+                </button>
+                <button class="category-btn" data-category="defi">
+                    <i class="fas fa-coins"></i>
+                    <span>DeFi动态</span>
+                </button>
+                <button class="category-btn" data-category="nft">
+                    <i class="fas fa-image"></i>
+                    <span>NFT资讯</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 头条新闻 -->
+    <section class="breaking-news">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-fire"></i>
+                    <span>头条新闻</span>
+                </div>
+                <h2 class="section-title">今日焦点</h2>
+            </div>
+            
+            <div class="breaking-news-grid">
+                <article class="breaking-news-main">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=500&fit=crop&crop=center" alt="比特币突破新高" loading="lazy">
+                        <div class="news-overlay">
+                            <span class="news-category breaking">头条</span>
+                            <div class="news-meta">
+                                <span class="news-time">
+                                    <i class="fas fa-clock"></i>
+                                    2小时前
+                                </span>
+                                <span class="news-views">
+                                    <i class="fas fa-eye"></i>
+                                    15.2K
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <h2 class="news-title">比特币突破$115,000关键阻力位，机构资金大量涌入</h2>
+                        <p class="news-excerpt">
+                            比特币价格在今日凌晨成功突破$115,000关键阻力位，创下历史新高。据链上数据显示，
+                            过去24小时内有超过$2.5亿美元的机构资金流入比特币市场，推动价格持续上涨。
+                            技术分析师认为，这一突破标志着新一轮牛市的开始...
+                        </p>
+                        <div class="news-tags">
+                            <span class="tag">比特币</span>
+                            <span class="tag">机构投资</span>
+                            <span class="tag">技术分析</span>
+                        </div>
+                        <div class="news-actions">
+                            <button class="action-btn like-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>1.2K</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                <span>分享</span>
+                            </button>
+                            <button class="action-btn bookmark-btn">
+                                <i class="fas fa-bookmark"></i>
+                                <span>收藏</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <div class="breaking-news-sidebar">
+                    <article class="breaking-news-item">
+                        <div class="news-image-small">
+                            <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=300&h=200&fit=crop" alt="以太坊升级" loading="lazy">
+                        </div>
+                        <div class="news-content-small">
+                            <span class="news-category tech">技术</span>
+                            <h3 class="news-title-small">以太坊2.0升级完成，Gas费用大幅降低</h3>
+                            <div class="news-meta-small">
+                                <span class="news-time">4小时前</span>
+                                <span class="news-views">8.5K</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="breaking-news-item">
+                        <div class="news-image-small">
+                            <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=300&h=200&fit=crop" alt="监管政策" loading="lazy">
+                        </div>
+                        <div class="news-content-small">
+                            <span class="news-category policy">政策</span>
+                            <h3 class="news-title-small">美国SEC批准更多比特币ETF申请</h3>
+                            <div class="news-meta-small">
+                                <span class="news-time">6小时前</span>
+                                <span class="news-views">12.3K</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="breaking-news-item">
+                        <div class="news-image-small">
+                            <img src="https://images.unsplash.com/photo-1640340434855-6084b1f4901c?w=300&h=200&fit=crop" alt="DeFi发展" loading="lazy">
+                        </div>
+                        <div class="news-content-small">
+                            <span class="news-category defi">DeFi</span>
+                            <h3 class="news-title-small">DeFi协议总锁仓量突破$200B新高</h3>
+                            <div class="news-meta-small">
+                                <span class="news-time">8小时前</span>
+                                <span class="news-views">6.8K</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新资讯列表 -->
+    <section class="news-list">
+        <div class="container">
+            <div class="news-controls">
+                <div class="controls-left">
+                    <div class="sort-options">
+                        <button class="sort-btn active" data-sort="latest">
+                            <i class="fas fa-clock"></i>
+                            <span>最新发布</span>
+                        </button>
+                        <button class="sort-btn" data-sort="popular">
+                            <i class="fas fa-fire"></i>
+                            <span>热门资讯</span>
+                        </button>
+                        <button class="sort-btn" data-sort="trending">
+                            <i class="fas fa-trending-up"></i>
+                            <span>趋势话题</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="controls-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="搜索资讯..." id="newsSearch">
+                    </div>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="news-grid" id="newsGrid">
+                <!-- 新闻列表将通过JavaScript动态加载 -->
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=400&h=250&fit=crop" alt="区块链技术" loading="lazy">
+                        <div class="news-overlay">
+                            <span class="news-category tech">技术发展</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-author">
+                                <i class="fas fa-user"></i>
+                                技术分析师
+                            </span>
+                            <span class="news-date">
+                                <i class="fas fa-clock"></i>
+                                10小时前
+                            </span>
+                        </div>
+                        <h3 class="news-title">Layer2扩容方案迎来重大突破</h3>
+                        <p class="news-excerpt">
+                            Arbitrum和Optimism等Layer2解决方案在过去一周内处理交易量创历史新高，
+                            显示出以太坊生态系统的扩容能力正在快速提升...
+                        </p>
+                        <div class="news-tags">
+                            <span class="tag">Layer2</span>
+                            <span class="tag">扩容</span>
+                            <span class="tag">以太坊</span>
+                        </div>
+                        <div class="news-actions">
+                            <button class="action-btn like-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>856</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="fas fa-comment"></i>
+                                <span>124</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                <span>分享</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=250&fit=crop" alt="监管政策" loading="lazy">
+                        <div class="news-overlay">
+                            <span class="news-category policy">政策法规</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-author">
+                                <i class="fas fa-user"></i>
+                                政策分析师
+                            </span>
+                            <span class="news-date">
+                                <i class="fas fa-clock"></i>
+                                12小时前
+                            </span>
+                        </div>
+                        <h3 class="news-title">欧盟MiCA法规正式生效，加密货币监管进入新阶段</h3>
+                        <p class="news-excerpt">
+                            欧盟《加密资产市场法规》(MiCA)正式生效，为加密货币在欧洲的合规运营提供了明确框架。
+                            这一里程碑式的法规将如何影响全球加密货币市场...
+                        </p>
+                        <div class="news-tags">
+                            <span class="tag">MiCA</span>
+                            <span class="tag">监管</span>
+                            <span class="tag">欧盟</span>
+                        </div>
+                        <div class="news-actions">
+                            <button class="action-btn like-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>1.2K</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="fas fa-comment"></i>
+                                <span>89</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                <span>分享</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1640340434855-6084b1f4901c?w=400&h=250&fit=crop" alt="DeFi协议" loading="lazy">
+                        <div class="news-overlay">
+                            <span class="news-category defi">DeFi动态</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-author">
+                                <i class="fas fa-user"></i>
+                                DeFi研究员
+                            </span>
+                            <span class="news-date">
+                                <i class="fas fa-clock"></i>
+                                14小时前
+                            </span>
+                        </div>
+                        <h3 class="news-title">Uniswap V4即将上线，引入全新流动性机制</h3>
+                        <p class="news-excerpt">
+                            去中心化交易所Uniswap宣布V4版本即将上线，新版本将引入革命性的流动性提供机制，
+                            预计将大幅提升交易效率并降低滑点...
+                        </p>
+                        <div class="news-tags">
+                            <span class="tag">Uniswap</span>
+                            <span class="tag">DEX</span>
+                            <span class="tag">流动性</span>
+                        </div>
+                        <div class="news-actions">
+                            <button class="action-btn like-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>743</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="fas fa-comment"></i>
+                                <span>156</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                <span>分享</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1621504450181-5d356f61d307?w=400&h=250&fit=crop" alt="NFT市场" loading="lazy">
+                        <div class="news-overlay">
+                            <span class="news-category nft">NFT资讯</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-author">
+                                <i class="fas fa-user"></i>
+                                NFT分析师
+                            </span>
+                            <span class="news-date">
+                                <i class="fas fa-clock"></i>
+                                16小时前
+                            </span>
+                        </div>
+                        <h3 class="news-title">NFT市场回暖，蓝筹项目交易量大幅上升</h3>
+                        <p class="news-excerpt">
+                            经过长期调整后，NFT市场显现回暖迹象。BAYC、CryptoPunks等蓝筹项目交易量
+                            在过去一周内上升超过200%，市场情绪明显改善...
+                        </p>
+                        <div class="news-tags">
+                            <span class="tag">NFT</span>
+                            <span class="tag">蓝筹</span>
+                            <span class="tag">交易量</span>
+                        </div>
+                        <div class="news-actions">
+                            <button class="action-btn like-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>592</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="fas fa-comment"></i>
+                                <span>78</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                <span>分享</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&h=250&fit=crop" alt="市场分析" loading="lazy">
+                        <div class="news-overlay">
+                            <span class="news-category market">市场分析</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-author">
+                                <i class="fas fa-user"></i>
+                                市场分析师
+                            </span>
+                            <span class="news-date">
+                                <i class="fas fa-clock"></i>
+                                18小时前
+                            </span>
+                        </div>
+                        <h3 class="news-title">机构投资者持续增持，加密货币市场结构性变化</h3>
+                        <p class="news-excerpt">
+                            最新数据显示，机构投资者在过去一个月内持续增持比特币和以太坊，
+                            总持仓量创历史新高。这一趋势反映了加密货币市场的结构性变化...
+                        </p>
+                        <div class="news-tags">
+                            <span class="tag">机构投资</span>
+                            <span class="tag">持仓</span>
+                            <span class="tag">市场结构</span>
+                        </div>
+                        <div class="news-actions">
+                            <button class="action-btn like-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>1.1K</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="fas fa-comment"></i>
+                                <span>203</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                <span>分享</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=400&h=250&fit=crop" alt="技术创新" loading="lazy">
+                        <div class="news-overlay">
+                            <span class="news-category tech">技术发展</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-author">
+                                <i class="fas fa-user"></i>
+                                技术专家
+                            </span>
+                            <span class="news-date">
+                                <i class="fas fa-clock"></i>
+                                20小时前
+                            </span>
+                        </div>
+                        <h3 class="news-title">零知识证明技术突破，隐私保护迎来新时代</h3>
+                        <p class="news-excerpt">
+                            最新的零知识证明技术在性能和可扩展性方面取得重大突破，
+                            为区块链隐私保护和扩容问题提供了全新解决方案...
+                        </p>
+                        <div class="news-tags">
+                            <span class="tag">零知识证明</span>
+                            <span class="tag">隐私</span>
+                            <span class="tag">技术突破</span>
+                        </div>
+                        <div class="news-actions">
+                            <button class="action-btn like-btn">
+                                <i class="fas fa-heart"></i>
+                                <span>687</span>
+                            </button>
+                            <button class="action-btn comment-btn">
+                                <i class="fas fa-comment"></i>
+                                <span>92</span>
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                <span>分享</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="load-more">
+                <button class="btn btn-outline" id="loadMoreNews">
+                    <i class="fas fa-plus"></i>
+                    <span>加载更多资讯</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-gradient"></div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <div class="brand-info">
+                        <h3>Hodor<span class="brand-accent">Crypto</span></h3>
+                        <p>专业的加密货币资讯和交易指导平台</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">支持币种</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">实时监控</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>平台功能</h4>
+                        <ul>
+                            <li><a href="../index.html">首页</a></li>
+                            <li><a href="market.html">实时行情</a></li>
+                            <li><a href="news.html">市场资讯</a></li>
+                            <li><a href="guides.html">交易教程</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>学习中心</h4>
+                        <ul>
+                            <li><a href="guides/deposit-guide.html">入金指南</a></li>
+                            <li><a href="guides/withdraw-guide.html">出金指南</a></li>
+                            <li><a href="guides/security-guide.html">安全防护</a></li>
+                            <li><a href="guides/risk-management.html">风险管理</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>联系我们</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>contact@hodorcrypto.com</span>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link telegram">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#" class="social-link discord">
+                                    <i class="fab fa-discord"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2023 HodorCrypto. 保留所有权利。</p>
-                <p>免责声明：本网站提供的信息仅供参考，不构成投资建议。</p>
+                <div class="footer-info">
+                    <p>&copy; 2024 HodorCrypto. 保留所有权利。</p>
+                    <div class="footer-badges">
+                        <span class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            安全认证
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-clock"></i>
+                            实时数据
+                        </span>
+                    </div>
+                </div>
+                <div class="data-source">
+                    <p>资讯来源：全球权威媒体 | 实时更新</p>
+                    <div class="api-status">
+                        <div class="status-dot active"></div>
+                        <span>资讯状态正常</span>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/news-feed.js"></script>
-    <script>
-        // 新闻页面特定脚本
-        document.addEventListener('DOMContentLoaded', function() {
-            // 加载新闻数据
-            loadNewsFeed();
-            
-            // 设置筛选和排序事件监听器
-            setupNewsFilterListeners();
-            
-            // 设置分页事件监听器
-            setupPaginationListeners();
-        });
-        
-        // 设置新闻筛选和排序事件监听器
-        function setupNewsFilterListeners() {
-            const searchInput = document.getElementById('news-search');
-            const categoryFilter = document.getElementById('news-category');
-            const sortOption = document.getElementById('news-sort');
-            
-            if (searchInput) {
-                searchInput.addEventListener('input', filterNews);
-            }
-            
-            if (categoryFilter) {
-                categoryFilter.addEventListener('change', filterNews);
-            }
-            
-            if (sortOption) {
-                sortOption.addEventListener('change', filterNews);
-            }
-        }
-        
-        // 筛选新闻
-        function filterNews() {
-            // 在实际项目中，这里会实现筛选逻辑
-            console.log('筛选新闻');
-            
-            // 重新加载新闻数据
-            loadNewsFeed();
-        }
-        
-        // 设置分页事件监听器
-        function setupPaginationListeners() {
-            const prevPageBtn = document.getElementById('prev-page');
-            const nextPageBtn = document.getElementById('next-page');
-            
-            if (prevPageBtn) {
-                prevPageBtn.addEventListener('click', function() {
-                    if (!this.disabled) {
-                        const currentPage = parseInt(document.getElementById('current-page').textContent);
-                        if (currentPage > 1) {
-                            document.getElementById('current-page').textContent = currentPage - 1;
-                            loadNewsFeed();
-                            
-                            // 更新按钮状态
-                            updatePaginationButtons();
-                        }
-                    }
-                });
-            }
-            
-            if (nextPageBtn) {
-                nextPageBtn.addEventListener('click', function() {
-                    const currentPage = parseInt(document.getElementById('current-page').textContent);
-                    const totalPages = parseInt(document.getElementById('total-pages').textContent);
-                    
-                    if (currentPage < totalPages) {
-                        document.getElementById('current-page').textContent = currentPage + 1;
-                        loadNewsFeed();
-                        
-                        // 更新按钮状态
-                        updatePaginationButtons();
-                    }
-                });
-            }
-            
-            // 初始化分页按钮状态
-            updatePaginationButtons();
-        }
-        
-        // 更新分页按钮状态
-        function updatePaginationButtons() {
-            const currentPage = parseInt(document.getElementById('current-page').textContent);
-            const totalPages = parseInt(document.getElementById('total-pages').textContent);
-            
-            document.getElementById('prev-page').disabled = currentPage <= 1;
-            document.getElementById('next-page').disabled = currentPage >= totalPages;
-        }
-        
-        // 订阅表单提交处理
-        document.addEventListener('DOMContentLoaded', function() {
-            const newsletterForm = document.querySelector('.newsletter-form');
-            
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const emailInput = this.querySelector('input[type="email"]');
-                    const email = emailInput.value;
-                    
-                    // 在实际项目中，这里会发送订阅请求到服务器
-                    console.log('订阅邮箱:', email);
-                    
-                    // 显示成功消息
-                    const formContainer = this.parentElement;
-                    formContainer.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> 订阅成功！感谢您的关注。</div>';
-                });
-            }
-        });
-    </script>
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="../js/ultra-modern.js"></script>
+    <script src="../js/news-page.js"></script>
 </body>
 </html>

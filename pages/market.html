@@ -3,465 +3,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>市场行情 - Hodor加密货币资讯中心</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/enhanced-ui.css">
+    <title>市场行情 - HodorCrypto 专业加密货币平台</title>
+    <link rel="stylesheet" href="../css/ultra-modern.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Hodor<span>Crypto</span></h1>
+    <!-- 加载动画 -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="crypto-logo">
+                <i class="fas fa-chart-line"></i>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="../index.html">首页</a></li>
-                    <li><a href="market.html" class="active">市场行情</a></li>
-                    <li><a href="news.html">最新资讯</a></li>
-                    <li><a href="guides.html">交易教程</a></li>
-                    <li><a href="announcements.html">活动公告</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
+            <div class="loading-text">加载市场数据</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
             </div>
         </div>
-    </header>
+    </div>
 
+    <!-- 顶部实时价格条 -->
+    <div class="price-ticker">
+        <div class="ticker-wrapper">
+            <div class="ticker-content" id="tickerContent">
+                <!-- 实时数据将通过JavaScript加载 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Hodor<span class="brand-accent">Crypto</span></h1>
+                    <span class="brand-tagline">专业数字货币平台</span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="market.html" class="nav-link active">
+                        <i class="fas fa-chart-line"></i>
+                        <span>市场行情</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link">
+                        <i class="fas fa-newspaper"></i>
+                        <span>最新资讯</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="guides.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>交易教程</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="announcements.html" class="nav-link">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>活动公告</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
     <section class="page-header">
-        <div class="container">
-            <h1>市场行情</h1>
-            <p>全球前30大交易所实时价格对比</p>
+        <div class="header-background">
+            <div class="header-gradient"></div>
+            <div class="header-particles"></div>
         </div>
-    </section>
-
-    <section class="market-filter">
+        
         <div class="container">
-            <div class="filter-controls">
-                <div class="search-box">
-                    <input type="text" id="coin-search" placeholder="搜索币种...">
-                    <i class="fas fa-search"></i>
+            <div class="header-content">
+                <div class="header-badge">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>实时市场数据</span>
                 </div>
-                <div class="filter-dropdown">
-                    <select id="exchange-filter">
-                        <option value="all">所有交易所</option>
-                        <option value="binance">币安</option>
-                        <option value="okx">欧易</option>
-                        <option value="huobi">火币</option>
-                        <option value="kucoin">库币</option>
-                        <option value="gate">Gate.io</option>
-                        <option value="coinbase">Coinbase</option>
-                    </select>
-                </div>
-                <div class="sort-dropdown">
-                    <select id="sort-option">
-                        <option value="market_cap">市值排序</option>
-                        <option value="price_asc">价格升序</option>
-                        <option value="price_desc">价格降序</option>
-                        <option value="change_asc">涨幅升序</option>
-                        <option value="change_desc">涨幅降序</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="market-table">
-        <div class="container">
-            <div class="table-container">
-                <table id="market-data-table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>币种</th>
-                            <th>价格</th>
-                            <th>24h涨跌</th>
-                            <th>24h成交量</th>
-                            <th>市值</th>
-                            <th>交易所对比</th>
-                        </tr>
-                    </thead>
-                    <tbody id="market-data-body">
-                        <!-- 市场数据将通过JavaScript动态加载 -->
-                        <tr>
-                            <td colspan="7" class="loading-data">加载中...</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <section class="exchange-comparison">
-        <div class="container">
-            <h2 class="section-title">交易所对比</h2>
-            <div class="comparison-container" id="exchange-comparison">
-                <!-- 交易所对比数据将通过JavaScript动态加载 -->
-                <div class="comparison-loading">选择币种查看交易所对比</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="arbitrage-opportunities">
-        <div class="container">
-            <h2 class="section-title">套利机会</h2>
-            <div class="arbitrage-container" id="arbitrage-opportunities">
-                <!-- 套利机会数据将通过JavaScript动态加载 -->
-                <div class="arbitrage-loading">分析中...</div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>Hodor<span>Crypto</span></h2>
-                    <p>一站式加密货币资讯平台</p>
-                </div>
-                <div class="footer-links">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="../index.html">首页</a></li>
-                        <li><a href="market.html">市场行情</a></li>
-                        <li><a href="news.html">最新资讯</a></li>
-                        <li><a href="guides.html">交易教程</a></li>
-                        <li><a href="announcements.html">活动公告</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>联系我们</h3>
-                    <p><i class="fas fa-envelope"></i> contact@hodorcrypto.com</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
+                
+                <h1 class="page-title">
+                    加密货币
+                    <span class="gradient-text">市场行情</span>
+                </h1>
+                
+                <p class="page-description">
+                    实时追踪全球主要加密货币价格变动，获取专业的市场分析和投资洞察
+                </p>
+                
+                <div class="market-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number" id="totalCoins">50+</div>
+                            <div class="stat-label">支持币种</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">30s</div>
+                            <div class="stat-label">更新频率</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-label">数据准确率</div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 市场控制面板 -->
+    <section class="market-controls-section">
+        <div class="container">
+            <div class="controls-panel">
+                <div class="controls-left">
+                    <div class="market-tabs">
+                        <button class="tab-btn active" data-tab="all">
+                            <i class="fas fa-list"></i>
+                            <span>全部币种</span>
+                        </button>
+                        <button class="tab-btn" data-tab="gainers">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>涨幅榜</span>
+                        </button>
+                        <button class="tab-btn" data-tab="losers">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>跌幅榜</span>
+                        </button>
+                        <button class="tab-btn" data-tab="volume">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>成交量</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="controls-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="搜索币种..." id="coinSearch">
+                    </div>
+                    
+                    <div class="refresh-controls">
+                        <button class="refresh-btn" id="refreshMarket">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>刷新</span>
+                        </button>
+                        <div class="auto-refresh">
+                            <input type="checkbox" id="autoRefresh" checked>
+                            <label for="autoRefresh">自动刷新</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="market-info">
+                <div class="info-item">
+                    <span class="info-label">数据来源:</span>
+                    <span class="info-value">CoinGecko API</span>
+                    <div class="api-status">
+                        <div class="status-dot active"></div>
+                        <span>实时</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">最后更新:</span>
+                    <span class="info-value" id="lastUpdate">--</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">总市值:</span>
+                    <span class="info-value" id="totalMarketCap">计算中...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要市场数据 -->
+    <section class="main-market">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">主要加密货币</h2>
+                <p class="section-subtitle">按市值排序的顶级数字资产</p>
+            </div>
+            
+            <div class="market-table-container">
+                <div class="table-header">
+                    <div class="header-cell rank">排名</div>
+                    <div class="header-cell coin">币种</div>
+                    <div class="header-cell price">价格</div>
+                    <div class="header-cell change-24h">24h涨跌</div>
+                    <div class="header-cell volume">24h成交量</div>
+                    <div class="header-cell market-cap">市值</div>
+                    <div class="header-cell chart">7日走势</div>
+                </div>
+                
+                <div class="market-table" id="marketTable">
+                    <!-- 市场数据将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 市场分析 -->
+    <section class="market-analysis">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">市场分析</h2>
+                <p class="section-subtitle">专业的市场洞察和趋势分析</p>
+            </div>
+            
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>市场趋势</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="trend-indicator">
+                            <div class="trend-value" id="marketTrend">分析中...</div>
+                            <div class="trend-description" id="trendDescription">正在分析市场整体趋势...</div>
+                        </div>
+                        <div class="trend-chart">
+                            <canvas id="trendChart" width="300" height="150"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analysis-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>热门币种</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="hot-coins" id="hotCoins">
+                            <!-- 热门币种将通过JavaScript加载 -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analysis-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>风险提示</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="risk-alerts">
+                            <div class="alert-item">
+                                <i class="fas fa-info-circle"></i>
+                                <span>加密货币投资存在高风险，请谨慎投资</span>
+                            </div>
+                            <div class="alert-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>建议分散投资，不要将所有资金投入单一币种</span>
+                            </div>
+                            <div class="alert-item">
+                                <i class="fas fa-clock"></i>
+                                <span>市场波动剧烈，请做好风险管理</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 交易工具 -->
+    <section class="trading-tools">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">交易工具</h2>
+                <p class="section-subtitle">专业的交易计算和分析工具</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>投资计算器</h3>
+                    </div>
+                    <div class="tool-content">
+                        <div class="calculator">
+                            <div class="input-group">
+                                <label>投资金额 (USD)</label>
+                                <input type="number" id="investAmount" placeholder="1000">
+                            </div>
+                            <div class="input-group">
+                                <label>选择币种</label>
+                                <select id="coinSelect">
+                                    <option value="bitcoin">Bitcoin (BTC)</option>
+                                    <option value="ethereum">Ethereum (ETH)</option>
+                                    <option value="binancecoin">Binance Coin (BNB)</option>
+                                </select>
+                            </div>
+                            <div class="calculation-result">
+                                <div class="result-item">
+                                    <span class="result-label">可购买数量:</span>
+                                    <span class="result-value" id="buyAmount">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">当前价值:</span>
+                                    <span class="result-value" id="currentValue">--</span>
+                                </div>
+                            </div>
+                            <button class="calculate-btn" id="calculateBtn">
+                                <i class="fas fa-calculator"></i>
+                                计算
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h3>收益计算器</h3>
+                    </div>
+                    <div class="tool-content">
+                        <div class="profit-calculator">
+                            <div class="input-group">
+                                <label>买入价格 (USD)</label>
+                                <input type="number" id="buyPrice" placeholder="50000">
+                            </div>
+                            <div class="input-group">
+                                <label>卖出价格 (USD)</label>
+                                <input type="number" id="sellPrice" placeholder="55000">
+                            </div>
+                            <div class="input-group">
+                                <label>投资数量</label>
+                                <input type="number" id="quantity" placeholder="1">
+                            </div>
+                            <div class="profit-result">
+                                <div class="result-item">
+                                    <span class="result-label">收益金额:</span>
+                                    <span class="result-value" id="profitAmount">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">收益率:</span>
+                                    <span class="result-value" id="profitRate">--</span>
+                                </div>
+                            </div>
+                            <button class="calculate-btn" id="profitCalculateBtn">
+                                <i class="fas fa-chart-line"></i>
+                                计算收益
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-gradient"></div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <div class="brand-info">
+                        <h3>Hodor<span class="brand-accent">Crypto</span></h3>
+                        <p>专业的加密货币资讯和交易指导平台</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">支持币种</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">实时监控</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>平台功能</h4>
+                        <ul>
+                            <li><a href="../index.html">首页</a></li>
+                            <li><a href="market.html">实时行情</a></li>
+                            <li><a href="news.html">市场资讯</a></li>
+                            <li><a href="guides.html">交易教程</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>学习中心</h4>
+                        <ul>
+                            <li><a href="guides/deposit-guide.html">入金指南</a></li>
+                            <li><a href="guides/withdraw-guide.html">出金指南</a></li>
+                            <li><a href="guides/security-guide.html">安全防护</a></li>
+                            <li><a href="guides/risk-management.html">风险管理</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>联系我们</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>contact@hodorcrypto.com</span>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link telegram">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#" class="social-link discord">
+                                    <i class="fab fa-discord"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2023 HodorCrypto. 保留所有权利。</p>
-                <p>免责声明：本网站提供的信息仅供参考，不构成投资建议。</p>
+                <div class="footer-info">
+                    <p>&copy; 2024 HodorCrypto. 保留所有权利。</p>
+                    <div class="footer-badges">
+                        <span class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            安全认证
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-clock"></i>
+                            实时数据
+                        </span>
+                    </div>
+                </div>
+                <div class="data-source">
+                    <p>数据来源：CoinGecko API | 实时更新</p>
+                    <div class="api-status">
+                        <div class="status-dot active"></div>
+                        <span>API状态正常</span>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/market-data.js"></script>
-    <script>
-        // 市场页面特定脚本
-        document.addEventListener('DOMContentLoaded', function() {
-            // 加载完整市场数据
-            loadFullMarketData();
-            
-            // 设置筛选和排序事件监听器
-            setupFilterListeners();
-        });
-        
-        // 加载完整市场数据
-        function loadFullMarketData() {
-            // 这里会实现完整的市场数据加载逻辑
-            // 在实际项目中，应该从API获取数据
-            
-            // 模拟加载延迟
-            setTimeout(() => {
-                const tableBody = document.getElementById('market-data-body');
-                if (tableBody) {
-                    tableBody.innerHTML = `
-                        <tr>
-                            <td>1</td>
-                            <td><div class="coin-info"><img src="../images/coins/btc.png" alt="BTC"><span>比特币 (BTC)</span></div></td>
-                            <td>$43,250.00</td>
-                            <td class="change up">+2.15%</td>
-                            <td>$28.5B</td>
-                            <td>$825.7B</td>
-                            <td><button class="btn-compare" data-coin="btc">查看对比</button></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><div class="coin-info"><img src="../images/coins/eth.png" alt="ETH"><span>以太坊 (ETH)</span></div></td>
-                            <td>$2,350.00</td>
-                            <td class="change up">+1.87%</td>
-                            <td>$15.2B</td>
-                            <td>$282.1B</td>
-                            <td><button class="btn-compare" data-coin="eth">查看对比</button></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><div class="coin-info"><img src="../images/coins/bnb.png" alt="BNB"><span>币安币 (BNB)</span></div></td>
-                            <td>$305.75</td>
-                            <td class="change up">+0.95%</td>
-                            <td>$1.8B</td>
-                            <td>$47.3B</td>
-                            <td><button class="btn-compare" data-coin="bnb">查看对比</button></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><div class="coin-info"><img src="../images/coins/xrp.png" alt="XRP"><span>瑞波币 (XRP)</span></div></td>
-                            <td>$0.52</td>
-                            <td class="change down">-0.75%</td>
-                            <td>$1.2B</td>
-                            <td>$27.5B</td>
-                            <td><button class="btn-compare" data-coin="xrp">查看对比</button></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><div class="coin-info"><img src="../images/coins/ada.png" alt="ADA"><span>卡尔达诺 (ADA)</span></div></td>
-                            <td>$0.38</td>
-                            <td class="change down">-1.25%</td>
-                            <td>$850M</td>
-                            <td>$13.2B</td>
-                            <td><button class="btn-compare" data-coin="ada">查看对比</button></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td><div class="coin-info"><img src="../images/coins/sol.png" alt="SOL"><span>索拉纳 (SOL)</span></div></td>
-                            <td>$24.85</td>
-                            <td class="change up">+3.45%</td>
-                            <td>$1.5B</td>
-                            <td>$10.8B</td>
-                            <td><button class="btn-compare" data-coin="sol">查看对比</button></td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td><div class="coin-info"><img src="../images/coins/dot.png" alt="DOT"><span>波卡 (DOT)</span></div></td>
-                            <td>$6.75</td>
-                            <td class="change up">+0.65%</td>
-                            <td>$420M</td>
-                            <td>$8.5B</td>
-                            <td><button class="btn-compare" data-coin="dot">查看对比</button></td>
-                        </tr>
-                    `;
-                    
-                    // 添加对比按钮事件监听器
-                    setupCompareButtons();
-                }
-            }, 800);
-        }
-        
-        // 设置筛选和排序事件监听器
-        function setupFilterListeners() {
-            const searchInput = document.getElementById('coin-search');
-            const exchangeFilter = document.getElementById('exchange-filter');
-            const sortOption = document.getElementById('sort-option');
-            
-            if (searchInput) {
-                searchInput.addEventListener('input', filterMarketData);
-            }
-            
-            if (exchangeFilter) {
-                exchangeFilter.addEventListener('change', filterMarketData);
-            }
-            
-            if (sortOption) {
-                sortOption.addEventListener('change', filterMarketData);
-            }
-        }
-        
-        // 筛选市场数据
-        function filterMarketData() {
-            // 在实际项目中，这里会实现筛选逻辑
-            console.log('筛选市场数据');
-        }
-        
-        // 设置对比按钮事件监听器
-        function setupCompareButtons() {
-            const compareButtons = document.querySelectorAll('.btn-compare');
-            
-            compareButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const coin = this.getAttribute('data-coin');
-                    showExchangeComparison(coin);
-                });
-            });
-        }
-        
-        // 显示交易所对比
-        function showExchangeComparison(coin) {
-            const comparisonContainer = document.getElementById('exchange-comparison');
-            
-            if (comparisonContainer) {
-                comparisonContainer.innerHTML = '<div class="comparison-loading">加载中...</div>';
-                
-                // 模拟加载延迟
-                setTimeout(() => {
-                    // 生成模拟的交易所对比数据
-                    const coinNames = {
-                        'btc': '比特币 (BTC)',
-                        'eth': '以太坊 (ETH)',
-                        'bnb': '币安币 (BNB)',
-                        'xrp': '瑞波币 (XRP)',
-                        'ada': '卡尔达诺 (ADA)',
-                        'sol': '索拉纳 (SOL)',
-                        'dot': '波卡 (DOT)'
-                    };
-                    
-                    const basePrice = coin === 'btc' ? 43250 : 
-                                     coin === 'eth' ? 2350 : 
-                                     coin === 'bnb' ? 305.75 : 
-                                     coin === 'xrp' ? 0.52 : 
-                                     coin === 'ada' ? 0.38 : 
-                                     coin === 'sol' ? 24.85 : 6.75;
-                    
-                    comparisonContainer.innerHTML = `
-                        <h3>${coinNames[coin]}交易所价格对比</h3>
-                        <div class="comparison-table">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>交易所</th>
-                                        <th>价格</th>
-                                        <th>与均价差异</th>
-                                        <th>24h成交量</th>
-                                        <th>操作</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>币安</td>
-                                        <td>$${(basePrice * 1.001).toFixed(2)}</td>
-                                        <td class="diff up">+0.10%</td>
-                                        <td>${coin === 'btc' ? '$5.2B' : coin === 'eth' ? '$2.8B' : '$580M'}</td>
-                                        <td><a href="#" class="btn-small">前往交易</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>欧易</td>
-                                        <td>$${(basePrice * 0.998).toFixed(2)}</td>
-                                        <td class="diff down">-0.20%</td>
-                                        <td>${coin === 'btc' ? '$4.8B' : coin === 'eth' ? '$2.5B' : '$520M'}</td>
-                                        <td><a href="#" class="btn-small">前往交易</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>火币</td>
-                                        <td>$${(basePrice * 1.002).toFixed(2)}</td>
-                                        <td class="diff up">+0.20%</td>
-                                        <td>${coin === 'btc' ? '$3.9B' : coin === 'eth' ? '$2.1B' : '$490M'}</td>
-                                        <td><a href="#" class="btn-small">前往交易</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>库币</td>
-                                        <td>$${(basePrice * 0.999).toFixed(2)}</td>
-                                        <td class="diff down">-0.10%</td>
-                                        <td>${coin === 'btc' ? '$2.1B' : coin === 'eth' ? '$1.2B' : '$320M'}</td>
-                                        <td><a href="#" class="btn-small">前往交易</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gate.io</td>
-                                        <td>$${(basePrice * 1.0015).toFixed(2)}</td>
-                                        <td class="diff up">+0.15%</td>
-                                        <td>${coin === 'btc' ? '$1.8B' : coin === 'eth' ? '$950M' : '$280M'}</td>
-                                        <td><a href="#" class="btn-small">前往交易</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Coinbase</td>
-                                        <td>$${(basePrice * 1.003).toFixed(2)}</td>
-                                        <td class="diff up">+0.30%</td>
-                                        <td>${coin === 'btc' ? '$3.5B' : coin === 'eth' ? '$1.9B' : '$420M'}</td>
-                                        <td><a href="#" class="btn-small">前往交易</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="comparison-summary">
-                            <div class="summary-item">
-                                <span class="label">均价</span>
-                                <span class="value">$${basePrice.toFixed(2)}</span>
-                            </div>
-                            <div class="summary-item">
-                                <span class="label">最高价</span>
-                                <span class="value">$${(basePrice * 1.003).toFixed(2)} (Coinbase)</span>
-                            </div>
-                            <div class="summary-item">
-                                <span class="label">最低价</span>
-                                <span class="value">$${(basePrice * 0.998).toFixed(2)} (欧易)</span>
-                            </div>
-                            <div class="summary-item">
-                                <span class="label">最大价差</span>
-                                <span class="value">0.50% ($${(basePrice * 0.005).toFixed(2)})</span>
-                            </div>
-                        </div>
-                    `;
-                    
-                    // 显示套利机会
-                    showArbitrageOpportunities(coin, basePrice);
-                }, 600);
-            }
-        }
-        
-        // 显示套利机会
-        function showArbitrageOpportunities(coin, basePrice) {
-            const arbitrageContainer = document.getElementById('arbitrage-opportunities');
-            
-            if (arbitrageContainer) {
-                arbitrageContainer.innerHTML = '<div class="arbitrage-loading">分析中...</div>';
-                
-                // 模拟加载延迟
-                setTimeout(() => {
-                    arbitrageContainer.innerHTML = `
-                        <div class="arbitrage-card">
-                            <div class="arbitrage-header">
-                                <h3>套利机会 #1</h3>
-                                <span class="profit">预计利润: +0.50%</span>
-                            </div>
-                            <div class="arbitrage-body">
-                                <div class="arbitrage-step">
-                                    <span class="step-number">1</span>
-                                    <span class="step-desc">在欧易以 $${(basePrice * 0.998).toFixed(2)} 买入 ${coin.toUpperCase()}</span>
-                                </div>
-                                <div class="arbitrage-arrow">
-                                    <i class="fas fa-arrow-down"></i>
-                                </div>
-                                <div class="arbitrage-step">
-                                    <span class="step-number">2</span>
-                                    <span class="step-desc">转账至 Coinbase (费用约 ${coin === 'btc' ? '0.0001 BTC' : coin === 'eth' ? '0.002 ETH' : '0.01 ' + coin.toUpperCase()})</span>
-                                </div>
-                                <div class="arbitrage-arrow">
-                                    <i class="fas fa-arrow-down"></i>
-                                </div>
-                                <div class="arbitrage-step">
-                                    <span class="step-number">3</span>
-                                    <span class="step-desc">在 Coinbase 以 $${(basePrice * 1.003).toFixed(2)} 卖出</span>
-                                </div>
-                            </div>
-                            <div class="arbitrage-footer">
-                                <p>注意：实际套利需考虑交易手续费、转账费用和市场滑点等因素</p>
-                            </div>
-                        </div>
-                        
-                        <div class="arbitrage-card">
-                            <div class="arbitrage-header">
-                                <h3>套利机会 #2</h3>
-                                <span class="profit">预计利润: +0.35%</span>
-                            </div>
-                            <div class="arbitrage-body">
-                                <div class="arbitrage-step">
-                                    <span class="step-number">1</span>
-                                    <span class="step-desc">在欧易以 $${(basePrice * 0.998).toFixed(2)} 买入 ${coin.toUpperCase()}</span>
-                                </div>
-                                <div class="arbitrage-arrow">
-                                    <i class="fas fa-arrow-down"></i>
-                                </div>
-                                <div class="arbitrage-step">
-                                    <span class="step-number">2</span>
-                                    <span class="step-desc">转账至火币 (费用约 ${coin === 'btc' ? '0.0001 BTC' : coin === 'eth' ? '0.002 ETH' : '0.01 ' + coin.toUpperCase()})</span>
-                                </div>
-                                <div class="arbitrage-arrow">
-                                    <i class="fas fa-arrow-down"></i>
-                                </div>
-                                <div class="arbitrage-step">
-                                    <span class="step-number">3</span>
-                                    <span class="step-desc">在火币以 $${(basePrice * 1.002).toFixed(2)} 卖出</span>
-                                </div>
-                            </div>
-                            <div class="arbitrage-footer">
-                                <p>注意：实际套利需考虑交易手续费、转账费用和市场滑点等因素</p>
-                            </div>
-                        </div>
-                    `;
-                }, 800);
-            }
-        }
-    </script>
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="../js/ultra-modern.js"></script>
+    <script src="../js/market-page.js"></script>
 </body>
 </html>
