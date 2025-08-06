@@ -56,7 +56,6 @@
                             <li><a href="#diversification">分散投资</a></li>
                             <li><a href="#psychology">交易心理</a></li>
                             <li><a href="#portfolio-management">投资组合管理</a></li>
-                            <li><a href="#emergency-plan">应急预案</a></li>
                         </ul>
                     </div>
 
@@ -181,51 +180,19 @@
                             <h3>仓位计算方法</h3>
                             
                             <div class="method-card">
-                                <h4>固定比例法</h4>
+                                <h4>2%风险规则</h4>
                                 <div class="method-description">
-                                    <p>每笔交易使用固定比例的资金，简单易行。</p>
-                                    <div class="method-example">
-                                        <h5>示例：</h5>
-                                        <p>总资金：$10,000</p>
-                                        <p>固定比例：10%</p>
-                                        <p>每笔交易：$1,000</p>
-                                    </div>
-                                    <div class="method-pros-cons">
-                                        <div class="pros">
-                                            <h5>优点：</h5>
-                                            <ul>
-                                                <li>简单易懂</li>
-                                                <li>风险可控</li>
-                                                <li>适合新手</li>
-                                            </ul>
-                                        </div>
-                                        <div class="cons">
-                                            <h5>缺点：</h5>
-                                            <ul>
-                                                <li>不考虑风险差异</li>
-                                                <li>可能过度保守</li>
-                                                <li>资金利用率低</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="method-card">
-                                <h4>风险平价法</h4>
-                                <div class="method-description">
-                                    <p>根据每笔交易的风险大小来确定仓位，风险越大仓位越小。</p>
-                                    <div class="risk-parity-formula">
+                                    <p>每笔交易的风险不超过总资金的2%，这是最重要的风险管理规则。</p>
+                                    <div class="risk-formula">
                                         <h5>计算公式：</h5>
                                         <p><strong>仓位大小 = 风险资金 ÷ 单位风险</strong></p>
-                                        <p>风险资金 = 总资金 × 风险比例</p>
+                                        <p>风险资金 = 总资金 × 2%</p>
                                         <p>单位风险 = |入场价 - 止损价|</p>
                                     </div>
                                     <div class="method-example">
                                         <h5>示例：</h5>
                                         <p>总资金：$10,000</p>
-                                        <p>风险比例：2%</p>
-                                        <p>风险资金：$200</p>
+                                        <p>风险资金：$200 (2%)</p>
                                         <p>入场价：$100，止损价：$95</p>
                                         <p>单位风险：$5</p>
                                         <p>仓位大小：$200 ÷ $5 = 40个单位</p>
@@ -244,7 +211,7 @@
                                         </div>
                                         <div class="input-group">
                                             <label>风险比例 (%)</label>
-                                            <input type="number" id="riskPercent" placeholder="2" max="10">
+                                            <input type="number" id="riskPercent" placeholder="2" max="5">
                                         </div>
                                     </div>
                                     <div class="input-row">
@@ -291,10 +258,10 @@
                                 </div>
 
                                 <div class="rule-card">
-                                    <h4>资金管理</h4>
-                                    <p>保留一定比例的现金作为机会资金</p>
+                                    <h4>现金储备</h4>
+                                    <p>保留20-30%的资金作为机会资金</p>
                                     <div class="rule-explanation">
-                                        <p>建议保留20-30%的资金不投资，用于应对突发机会或紧急情况。</p>
+                                        <p>用于应对突发机会或紧急情况，不要满仓操作。</p>
                                     </div>
                                 </div>
                             </div>
@@ -304,6 +271,24 @@
                     <div class="guide-section" id="stop-loss">
                         <h2>止损策略</h2>
                         
+                        <div class="stop-loss-importance">
+                            <h3>止损的重要性</h3>
+                            <div class="importance-stats">
+                                <div class="stat-card">
+                                    <div class="stat-number">90%</div>
+                                    <div class="stat-label">的交易者因为不设止损而亏损</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">1:3</div>
+                                    <div class="stat-label">理想的风险收益比</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">5-10%</div>
+                                    <div class="stat-label">合理的止损幅度</div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="stop-loss-types">
                             <h3>止损类型</h3>
                             <div class="stop-loss-grid">
@@ -341,7 +326,7 @@
                                 <div class="stop-loss-card">
                                     <h4>技术止损</h4>
                                     <div class="stop-loss-description">
-                                        <p>基于技术分析设置止损点，如支撑位、趋势线等</p>
+                                        <p>基于技术分析设置止损点</p>
                                         <div class="technical-stops">
                                             <ul>
                                                 <li><strong>支撑位止损：</strong>跌破关键支撑位</li>
@@ -363,29 +348,6 @@
                                             <p>初始止损：$95 (5%)</p>
                                             <p>价格涨到$110，止损调整到$104.5</p>
                                             <p>价格涨到$120，止损调整到$114</p>
-                                        </div>
-                                        <div class="trailing-benefits">
-                                            <h5>优势：</h5>
-                                            <ul>
-                                                <li>锁定利润</li>
-                                                <li>让利润奔跑</li>
-                                                <li>减少情绪干扰</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="stop-loss-card">
-                                    <h4>时间止损</h4>
-                                    <div class="stop-loss-description">
-                                        <p>基于时间因素的止损策略</p>
-                                        <div class="time-stop-scenarios">
-                                            <ul>
-                                                <li><strong>持有期限：</strong>超过预定持有时间</li>
-                                                <li><strong>无进展止损：</strong>长时间横盘整理</li>
-                                                <li><strong>事件止损：</strong>重要事件前后</li>
-                                                <li><strong>周期止损：</strong>特定时间周期结束</li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -441,137 +403,86 @@
                     <div class="guide-section" id="diversification">
                         <h2>分散投资</h2>
                         
-                        <div class="diversification-dimensions">
-                            <h3>分散投资的维度</h3>
-                            <div class="dimension-grid">
-                                <div class="dimension-card">
-                                    <div class="dimension-icon">
-                                        <i class="fas fa-coins"></i>
+                        <div class="diversification-benefits">
+                            <h3>分散投资的好处</h3>
+                            <div class="benefit-cards">
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-shield-alt"></i>
                                     </div>
-                                    <h4>资产分散</h4>
-                                    <p>投资不同类型的加密货币</p>
-                                    <div class="asset-allocation">
-                                        <h5>建议配置：</h5>
-                                        <ul>
-                                            <li>主流币种：60-70% (BTC, ETH)</li>
-                                            <li>优质山寨币：20-30%</li>
-                                            <li>新兴项目：5-10%</li>
-                                            <li>稳定币：10-20%</li>
-                                        </ul>
-                                    </div>
+                                    <h4>降低风险</h4>
+                                    <p>通过投资不同资产，降低单一资产波动的影响</p>
                                 </div>
 
-                                <div class="dimension-card">
-                                    <div class="dimension-icon">
-                                        <i class="fas fa-clock"></i>
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-chart-line"></i>
                                     </div>
-                                    <h4>时间分散</h4>
-                                    <p>分批建仓，降低时机风险</p>
-                                    <div class="time-strategies">
-                                        <h5>策略方法：</h5>
-                                        <ul>
-                                            <li>定投策略 (DCA)</li>
-                                            <li>分批买入</li>
-                                            <li>网格交易</li>
-                                            <li>价值平均法</li>
-                                        </ul>
-                                    </div>
+                                    <h4>稳定收益</h4>
+                                    <p>不同资产的表现可以相互平衡，获得更稳定的收益</p>
                                 </div>
 
-                                <div class="dimension-card">
-                                    <div class="dimension-icon">
-                                        <i class="fas fa-exchange-alt"></i>
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-opportunities"></i>
                                     </div>
-                                    <h4>平台分散</h4>
-                                    <p>使用多个交易所和钱包</p>
-                                    <div class="platform-benefits">
-                                        <h5>优势：</h5>
-                                        <ul>
-                                            <li>降低单点故障风险</li>
-                                            <li>获得更好价格</li>
-                                            <li>提高流动性</li>
-                                            <li>分散监管风险</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="dimension-card">
-                                    <div class="dimension-icon">
-                                        <i class="fas fa-chart-bar"></i>
-                                    </div>
-                                    <h4>策略分散</h4>
-                                    <p>采用多种投资策略</p>
-                                    <div class="strategy-mix">
-                                        <h5>策略组合：</h5>
-                                        <ul>
-                                            <li>长期持有 (HODL)</li>
-                                            <li>短期交易</li>
-                                            <li>套利交易</li>
-                                            <li>DeFi挖矿</li>
-                                        </ul>
-                                    </div>
+                                    <h4>抓住机会</h4>
+                                    <p>投资多个领域，不会错过不同板块的机会</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="correlation-analysis">
-                            <h3>相关性分析</h3>
-                            <div class="correlation-content">
-                                <p>真正的分散投资需要选择相关性较低的资产。在加密货币市场中，大多数币种与比特币高度相关。</p>
-                                
-                                <div class="correlation-matrix">
-                                    <h4>主要币种相关性 (示例)</h4>
-                                    <table class="correlation-table">
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>BTC</th>
-                                                <th>ETH</th>
-                                                <th>BNB</th>
-                                                <th>ADA</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>BTC</strong></td>
-                                                <td class="correlation-high">1.00</td>
-                                                <td class="correlation-high">0.85</td>
-                                                <td class="correlation-medium">0.72</td>
-                                                <td class="correlation-medium">0.68</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>ETH</strong></td>
-                                                <td class="correlation-high">0.85</td>
-                                                <td class="correlation-high">1.00</td>
-                                                <td class="correlation-medium">0.76</td>
-                                                <td class="correlation-medium">0.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>BNB</strong></td>
-                                                <td class="correlation-medium">0.72</td>
-                                                <td class="correlation-medium">0.76</td>
-                                                <td class="correlation-high">1.00</td>
-                                                <td class="correlation-medium">0.65</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>ADA</strong></td>
-                                                <td class="correlation-medium">0.68</td>
-                                                <td class="correlation-medium">0.71</td>
-                                                <td class="correlation-medium">0.65</td>
-                                                <td class="correlation-high">1.00</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="correlation-legend">
-                                        <span class="legend-item">
-                                            <span class="correlation-high"></span> 高相关性 (>0.8)
-                                        </span>
-                                        <span class="legend-item">
-                                            <span class="correlation-medium"></span> 中等相关性 (0.5-0.8)
-                                        </span>
-                                        <span class="legend-item">
-                                            <span class="correlation-low"></span> 低相关性 (<0.5)
-                                        </span>
+                        <div class="diversification-strategies">
+                            <h3>分散投资策略</h3>
+                            <div class="strategy-grid">
+                                <div class="strategy-card">
+                                    <h4>资产类别分散</h4>
+                                    <div class="asset-allocation">
+                                        <h5>建议配置：</h5>
+                                        <div class="allocation-chart">
+                                            <div class="allocation-item">
+                                                <span class="allocation-label">主流币种 (BTC, ETH)</span>
+                                                <span class="allocation-percent">50-60%</span>
+                                            </div>
+                                            <div class="allocation-item">
+                                                <span class="allocation-label">优质山寨币</span>
+                                                <span class="allocation-percent">20-30%</span>
+                                            </div>
+                                            <div class="allocation-item">
+                                                <span class="allocation-label">稳定币</span>
+                                                <span class="allocation-percent">10-20%</span>
+                                            </div>
+                                            <div class="allocation-item">
+                                                <span class="allocation-label">新兴项目</span>
+                                                <span class="allocation-percent">5-10%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="strategy-card">
+                                    <h4>时间分散</h4>
+                                    <div class="time-strategies">
+                                        <h5>策略方法：</h5>
+                                        <ul>
+                                            <li><strong>定投策略 (DCA)：</strong>定期定额投资</li>
+                                            <li><strong>分批买入：</strong>分多次建仓</li>
+                                            <li><strong>网格交易：</strong>设置多个买卖点</li>
+                                            <li><strong>价值平均法：</strong>根据目标调整投资额</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="strategy-card">
+                                    <h4>平台分散</h4>
+                                    <div class="platform-benefits">
+                                        <h5>分散方式：</h5>
+                                        <ul>
+                                            <li>使用多个交易所</li>
+                                            <li>冷热钱包结合</li>
+                                            <li>不同地区的平台</li>
+                                            <li>中心化和去中心化平台</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -581,45 +492,393 @@
                     <div class="guide-section" id="psychology">
                         <h2>交易心理</h2>
                         
-                        <div class="psychological-biases">
-                            <h3>常见心理偏误</h3>
-                            <div class="bias-grid">
-                                <div class="bias-card">
+                        <div class="psychological-challenges">
+                            <h3>常见心理挑战</h3>
+                            <div class="challenge-grid">
+                                <div class="challenge-card">
+                                    <h4>恐惧与贪婪</h4>
+                                    <div class="challenge-description">
+                                        <p>市场的两大主导情绪，往往导致错误的交易决策</p>
+                                        <div class="emotion-effects">
+                                            <div class="emotion-item">
+                                                <h5>恐惧的影响：</h5>
+                                                <ul>
+                                                    <li>过早卖出</li>
+                                                    <li>错失机会</li>
+                                                    <li>恐慌性抛售</li>
+                                                </ul>
+                                            </div>
+                                            <div class="emotion-item">
+                                                <h5>贪婪的影响：</h5>
+                                                <ul>
+                                                    <li>过度持有</li>
+                                                    <li>忽视风险</li>
+                                                    <li>追涨杀跌</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="challenge-card">
                                     <h4>损失厌恶</h4>
-                                    <div class="bias-description">
+                                    <div class="challenge-description">
                                         <p>人们对损失的痛苦感受比同等收益的快乐感受更强烈</p>
-                                        <div class="bias-impact">
-                                            <h5>影响：</h5>
+                                        <div class="loss-aversion-effects">
                                             <ul>
                                                 <li>不愿意止损</li>
                                                 <li>过早获利了结</li>
                                                 <li>避免必要的风险</li>
-                                            </ul>
-                                        </div>
-                                        <div class="bias-solution">
-                                            <h5>解决方案：</h5>
-                                            <ul>
-                                                <li>提前制定交易计划</li>
-                                                <li>设置自动止损</li>
-                                                <li>关注长期目标</li>
+                                                <li>持有亏损仓位过久</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="bias-card">
+                                <div class="challenge-card">
                                     <h4>确认偏误</h4>
-                                    <div class="bias-description">
+                                    <div class="challenge-description">
                                         <p>倾向于寻找支持自己观点的信息，忽略相反证据</p>
-                                        <div class="bias-impact">
-                                            <h5>影响：</h5>
+                                        <div class="confirmation-bias-effects">
                                             <ul>
                                                 <li>忽视风险信号</li>
                                                 <li>过度自信</li>
                                                 <li>拒绝改变观点</li>
+                                                <li>选择性关注信息</li>
                                             </ul>
                                         </div>
-                                        <div class="bias-solution">
-                                            <h5>解决方案：</h5>
-                                            <ul>
-                                                <li>主动寻找反对意见</li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="psychology-solutions">
+                            <h3>心理管理策略</h3>
+                            <div class="solution-list">
+                                <div class="solution-item">
+                                    <div class="solution-number">1</div>
+                                    <div class="solution-content">
+                                        <h4>制定交易计划</h4>
+                                        <p>在交易前制定详细的计划，包括入场点、止损点、止盈点，严格执行。</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-item">
+                                    <div class="solution-number">2</div>
+                                    <div class="solution-content">
+                                        <h4>记录交易日志</h4>
+                                        <p>记录每笔交易的原因、结果和感受，定期回顾和总结。</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-item">
+                                    <div class="solution-number">3</div>
+                                    <div class="solution-content">
+                                        <h4>设置自动化规则</h4>
+                                        <p>使用止损单、止盈单等自动化工具，减少情绪干扰。</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-item">
+                                    <div class="solution-number">4</div>
+                                    <div class="solution-content">
+                                        <h4>保持学习心态</h4>
+                                        <p>将每次交易视为学习机会，关注过程而非结果。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section" id="portfolio-management">
+                        <h2>投资组合管理</h2>
+                        
+                        <div class="portfolio-principles">
+                            <h3>组合管理原则</h3>
+                            <div class="principle-cards">
+                                <div class="principle-card">
+                                    <h4>定期再平衡</h4>
+                                    <p>定期调整投资组合，保持目标配置比例</p>
+                                    <div class="rebalancing-example">
+                                        <h5>示例：</h5>
+                                        <p>目标配置：BTC 60%, ETH 40%</p>
+                                        <p>当前配置：BTC 70%, ETH 30%</p>
+                                        <p>操作：卖出部分BTC，买入ETH</p>
+                                    </div>
+                                </div>
+
+                                <div class="principle-card">
+                                    <h4>风险预算</h4>
+                                    <p>为不同资产分配不同的风险预算</p>
+                                    <div class="risk-budget-example">
+                                        <h5>风险分配：</h5>
+                                        <ul>
+                                            <li>主流币种：低风险，大仓位</li>
+                                            <li>优质山寨币：中等风险，中等仓位</li>
+                                            <li>新兴项目：高风险，小仓位</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="principle-card">
+                                    <h4>动态调整</h4>
+                                    <p>根据市场环境和个人情况调整投资策略</p>
+                                    <div class="dynamic-adjustment">
+                                        <h5>调整因素：</h5>
+                                        <ul>
+                                            <li>市场周期变化</li>
+                                            <li>个人风险承受能力</li>
+                                            <li>投资目标变化</li>
+                                            <li>资金状况变化</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-monitoring">
+                            <h3>组合监控指标</h3>
+                            <div class="monitoring-metrics">
+                                <div class="metric-card">
+                                    <h4>夏普比率</h4>
+                                    <p>衡量风险调整后的收益率</p>
+                                    <div class="metric-formula">
+                                        <p><strong>夏普比率 = (投资组合收益率 - 无风险收益率) / 投资组合标准差</strong></p>
+                                        <p>比率越高，风险调整后的收益越好</p>
+                                    </div>
+                                </div>
+
+                                <div class="metric-card">
+                                    <h4>最大回撤</h4>
+                                    <p>投资组合从峰值到谷值的最大跌幅</p>
+                                    <div class="drawdown-example">
+                                        <p><strong>示例：</strong></p>
+                                        <p>组合价值从$10,000跌到$7,000</p>
+                                        <p>最大回撤 = (7,000 - 10,000) / 10,000 = -30%</p>
+                                    </div>
+                                </div>
+
+                                <div class="metric-card">
+                                    <h4>波动率</h4>
+                                    <p>投资组合收益率的标准差</p>
+                                    <div class="volatility-levels">
+                                        <ul>
+                                            <li><strong>低波动率：</strong> < 20%</li>
+                                            <li><strong>中等波动率：</strong> 20-50%</li>
+                                            <li><strong>高波动率：</strong> > 50%</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-navigation">
+                        <a href="technical-analysis.html" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> 上一篇：技术分析入门
+                        </a>
+                        <a href="../guides.html" class="btn btn-primary">
+                            返回教程列表 <i class="fas fa-list"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="guide-sidebar">
+                    <div class="related-guides">
+                        <h3>相关教程</h3>
+                        <ul>
+                            <li><a href="deposit-guide.html">加密货币入金完全指南</a></li>
+                            <li><a href="withdraw-guide.html">安全出金最佳实践</a></li>
+                            <li><a href="security-guide.html">加密货币安全防护指南</a></li>
+                            <li><a href="technical-analysis.html">技术分析入门</a></li>
+                            <li><a href="crypto-tax.html">税务合规指南</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="risk-tools">
+                        <h3>风险管理工具</h3>
+                        <div class="tool-list">
+                            <div class="tool-item">
+                                <h4>仓位计算器</h4>
+                                <p>计算合理的仓位大小</p>
+                                <a href="#position-sizing" class="tool-link">使用工具</a>
+                            </div>
+                            <div class="tool-item">
+                                <h4>风险收益计算器</h4>
+                                <p>评估交易的风险收益比</p>
+                                <a href="#" class="tool-link">使用工具</a>
+                            </div>
+                            <div class="tool-item">
+                                <h4>组合分析工具</h4>
+                                <p>分析投资组合的风险指标</p>
+                                <a href="#" class="tool-link">使用工具</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="risk-checklist">
+                        <h3>风险管理检查清单</h3>
+                        <div class="checklist">
+                            <label class="checklist-item">
+                                <input type="checkbox"> 设置了止损点
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox"> 仓位不超过2%风险
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox"> 投资组合已分散
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox"> 制定了交易计划
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox"> 保留了现金储备
+                            </label>
+                            <label class="checklist-item">
+                                <input type="checkbox"> 定期回顾和调整
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="emergency-contacts">
+                        <h3>紧急联系</h3>
+                        <div class="contact-info">
+                            <p>如果遇到重大损失或技术问题：</p>
+                            <ul>
+                                <li>立即停止交易</li>
+                                <li>联系交易所客服</li>
+                                <li>寻求专业建议</li>
+                                <li>记录所有相关信息</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Hodor<span>Crypto</span></h2>
+                    <p>一站式加密货币资讯平台</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="../../index.html">首页</a></li>
+                        <li><a href="../market.html">市场行情</a></li>
+                        <li><a href="../news.html">最新资讯</a></li>
+                        <li><a href="../guides.html">交易教程</a></li>
+                        <li><a href="../announcements.html">活动公告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系我们</h3>
+                    <p><i class="fas fa-envelope"></i> contact@hodorcrypto.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HodorCrypto. 保留所有权利。</p>
+                <p>免责声明：本网站提供的信息仅供参考，不构成投资建议。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        // 仓位计算器
+        function calculatePosition() {
+            const totalCapital = parseFloat(document.getElementById('totalCapital').value);
+            const riskPercent = parseFloat(document.getElementById('riskPercent').value);
+            const entryPrice = parseFloat(document.getElementById('entryPrice').value);
+            const stopLoss = parseFloat(document.getElementById('stopLoss').value);
+            
+            if (!totalCapital || !riskPercent || !entryPrice || !stopLoss) {
+                document.getElementById('positionResult').innerHTML = '<p style="color: red;">请填写所有字段</p>';
+                return;
+            }
+            
+            if (riskPercent > 5) {
+                document.getElementById('positionResult').innerHTML = '<p style="color: red;">风险比例不应超过5%</p>';
+                return;
+            }
+            
+            const riskAmount = totalCapital * (riskPercent / 100);
+            const priceRisk = Math.abs(entryPrice - stopLoss);
+            const positionSize = riskAmount / priceRisk;
+            const positionValue = positionSize * entryPrice;
+            const positionPercent = (positionValue / totalCapital * 100).toFixed(2);
+            
+            document.getElementById('positionResult').innerHTML = `
+                <div class="position-calculation-result">
+                    <h4>计算结果：</h4>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <span class="label">风险金额：</span>
+                            <span class="value">$${riskAmount.toFixed(2)}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">价格风险：</span>
+                            <span class="value">$${priceRisk.toFixed(2)}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">建议仓位：</span>
+                            <span class="value">${positionSize.toFixed(4)} 币</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">仓位价值：</span>
+                            <span class="value">$${positionValue.toFixed(2)}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">仓位比例：</span>
+                            <span class="value">${positionPercent}%</span>
+                        </div>
+                    </div>
+                    <p class="note">注：此计算基于2%风险规则，请根据实际情况调整</p>
+                </div>
+            `;
+        }
+
+        // 平滑滚动到锚点
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocLinks = document.querySelectorAll('.guide-toc a');
+            
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // 检查清单功能
+            const checklistItems = document.querySelectorAll('.checklist input[type="checkbox"]');
+            checklistItems.forEach(item => {
+                item.addEventListener('change', function() {
+                    const checkedCount = document.querySelectorAll('.checklist input[type="checkbox"]:checked').length;
+                    const totalCount = checklistItems.length;
+                    const percentage = Math.round((checkedCount / totalCount) * 100);
+                    
+                    // 可以在这里添加进度显示
+                    console.log(`风险管理完成度: ${percentage}%`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
