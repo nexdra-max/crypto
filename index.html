@@ -3,59 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hodor加密货币资讯中心 - 专业的数字货币交易平台</title>
-    <link rel="stylesheet" href="css/modern-style.css">
+    <title>HodorCrypto - 专业加密货币资讯平台</title>
+    <link rel="stylesheet" href="css/ultra-modern.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 顶部价格滚动条 -->
+    <!-- 加载动画 -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="crypto-logo">
+                <i class="fab fa-bitcoin"></i>
+            </div>
+            <div class="loading-text">HodorCrypto</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 顶部实时价格条 -->
     <div class="price-ticker">
-        <div class="ticker-content" id="priceTickerContent">
-            <div class="ticker-item">
-                <span class="coin-name">BTC</span>
-                <span class="coin-price" id="btc-price">$0</span>
-                <span class="coin-change positive" id="btc-change">+0%</span>
-            </div>
-            <div class="ticker-item">
-                <span class="coin-name">ETH</span>
-                <span class="coin-price" id="eth-price">$0</span>
-                <span class="coin-change" id="eth-change">+0%</span>
-            </div>
-            <div class="ticker-item">
-                <span class="coin-name">BNB</span>
-                <span class="coin-price" id="bnb-price">$0</span>
-                <span class="coin-change" id="bnb-change">+0%</span>
-            </div>
-            <div class="ticker-item">
-                <span class="coin-name">XRP</span>
-                <span class="coin-price" id="xrp-price">$0</span>
-                <span class="coin-change" id="xrp-change">+0%</span>
-            </div>
-            <div class="ticker-item">
-                <span class="coin-name">ADA</span>
-                <span class="coin-price" id="ada-price">$0</span>
-                <span class="coin-change" id="ada-change">+0%</span>
+        <div class="ticker-wrapper">
+            <div class="ticker-content" id="tickerContent">
+                <!-- 实时数据将通过JavaScript加载 -->
             </div>
         </div>
     </div>
 
     <!-- 导航栏 -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h1>Hodor<span class="logo-accent">Crypto</span></h1>
-                <p class="logo-subtitle">专业数字货币资讯平台</p>
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Hodor<span class="brand-accent">Crypto</span></h1>
+                    <span class="brand-tagline">专业数字货币平台</span>
+                </div>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#" class="nav-link active">首页</a></li>
-                <li><a href="pages/market.html" class="nav-link">市场行情</a></li>
-                <li><a href="pages/news.html" class="nav-link">最新资讯</a></li>
-                <li><a href="pages/guides.html" class="nav-link">交易教程</a></li>
-                <li><a href="pages/announcements.html" class="nav-link">活动公告</a></li>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/market.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>市场行情</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/news.html" class="nav-link">
+                        <i class="fas fa-newspaper"></i>
+                        <span>最新资讯</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/guides.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>交易教程</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/announcements.html" class="nav-link">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>活动公告</span>
+                    </a>
+                </li>
             </ul>
-            <div class="nav-toggle">
-                <i class="fas fa-bars"></i>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
@@ -63,50 +93,73 @@
     <!-- 英雄区域 -->
     <section class="hero">
         <div class="hero-background">
-            <div class="hero-particles"></div>
+            <div class="hero-gradient"></div>
+            <div class="hero-particles" id="heroParticles"></div>
+            <div class="hero-grid"></div>
         </div>
+        
         <div class="hero-container">
             <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-rocket"></i>
+                    <span>全球领先的加密货币资讯平台</span>
+                </div>
+                
                 <h1 class="hero-title">
-                    探索数字货币的
-                    <span class="gradient-text">无限可能</span>
+                    掌握
+                    <span class="gradient-text">数字货币</span>
+                    <br>投资先机
                 </h1>
+                
                 <p class="hero-description">
-                    获取实时市场数据、专业交易指导和最新行业资讯。
-                    让我们助您在加密货币世界中稳健前行。
+                    获取实时市场数据、专业交易策略和深度行业分析。
+                    <br>让数据驱动您的投资决策，在加密货币市场中稳健获利。
                 </p>
-                <div class="hero-buttons">
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">支持币种</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-label">小时监控</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="99.9">0</div>
+                        <div class="stat-label">数据准确率%</div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
                     <a href="pages/market.html" class="btn btn-primary">
-                        <i class="fas fa-chart-line"></i>
-                        查看市场行情
+                        <i class="fas fa-chart-bar"></i>
+                        <span>实时行情</span>
+                        <div class="btn-glow"></div>
                     </a>
                     <a href="pages/guides.html" class="btn btn-secondary">
-                        <i class="fas fa-graduation-cap"></i>
-                        学习交易技巧
+                        <i class="fas fa-play"></i>
+                        <span>开始学习</span>
                     </a>
                 </div>
             </div>
+            
             <div class="hero-visual">
-                <div class="crypto-cards">
-                    <div class="crypto-card bitcoin">
-                        <div class="card-icon">
-                            <i class="fab fa-bitcoin"></i>
-                        </div>
-                        <div class="card-info">
-                            <h3>Bitcoin</h3>
-                            <p class="card-price" id="hero-btc-price">$0</p>
-                            <p class="card-change" id="hero-btc-change">+0%</p>
+                <div class="crypto-dashboard">
+                    <div class="dashboard-header">
+                        <h3>实时市场数据</h3>
+                        <div class="live-indicator">
+                            <div class="live-dot"></div>
+                            <span>LIVE</span>
                         </div>
                     </div>
-                    <div class="crypto-card ethereum">
-                        <div class="card-icon">
-                            <i class="fab fa-ethereum"></i>
-                        </div>
-                        <div class="card-info">
-                            <h3>Ethereum</h3>
-                            <p class="card-price" id="hero-eth-price">$0</p>
-                            <p class="card-change" id="hero-eth-change">+0%</p>
-                        </div>
+                    
+                    <div class="crypto-cards" id="heroCryptoCards">
+                        <!-- 实时数据卡片将通过JavaScript加载 -->
+                    </div>
+                    
+                    <div class="dashboard-chart">
+                        <canvas id="miniChart" width="300" height="120"></canvas>
                     </div>
                 </div>
             </div>
@@ -117,37 +170,61 @@
     <section class="features">
         <div class="container">
             <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-star"></i>
+                    <span>核心优势</span>
+                </div>
                 <h2 class="section-title">为什么选择 HodorCrypto？</h2>
-                <p class="section-subtitle">专业、安全、可靠的加密货币服务平台</p>
+                <p class="section-subtitle">专业、安全、可靠的一站式加密货币服务</p>
             </div>
+            
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="feature-icon">
-                        <i class="fas fa-chart-bar"></i>
+                        <i class="fas fa-bolt"></i>
+                        <div class="icon-glow"></div>
                     </div>
-                    <h3>实时市场数据</h3>
-                    <p>获取来自全球主要交易所的实时价格数据，确保您掌握最新市场动态。</p>
+                    <h3>实时数据</h3>
+                    <p>毫秒级数据更新，来自全球顶级交易所的实时价格信息</p>
+                    <div class="feature-stats">
+                        <span class="stat">99.9% 准确率</span>
+                    </div>
                 </div>
-                <div class="feature-card">
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fas fa-brain"></i>
+                        <div class="icon-glow"></div>
                     </div>
-                    <h3>专业交易教程</h3>
-                    <p>从入门到进阶的完整教程体系，包含技术分析、风险管理等核心知识。</p>
+                    <h3>智能分析</h3>
+                    <p>AI驱动的市场分析和趋势预测，助您做出明智投资决策</p>
+                    <div class="feature-stats">
+                        <span class="stat">24/7 监控</span>
+                    </div>
                 </div>
-                <div class="feature-card">
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
+                        <div class="icon-glow"></div>
                     </div>
-                    <h3>安全防护指南</h3>
-                    <p>全面的安全知识和最佳实践，保护您的数字资产安全。</p>
+                    <h3>安全保障</h3>
+                    <p>银行级安全防护，多重加密保护您的资产和隐私安全</p>
+                    <div class="feature-stats">
+                        <span class="stat">零安全事故</span>
+                    </div>
                 </div>
-                <div class="feature-card">
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="feature-icon">
-                        <i class="fas fa-newspaper"></i>
+                        <i class="fas fa-graduation-cap"></i>
+                        <div class="icon-glow"></div>
                     </div>
-                    <h3>行业资讯</h3>
-                    <p>及时获取加密货币行业的最新动态、政策变化和市场分析。</p>
+                    <h3>专业教育</h3>
+                    <p>从入门到专家的完整学习体系，提升您的交易技能</p>
+                    <div class="feature-stats">
+                        <span class="stat">100+ 教程</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -157,15 +234,36 @@
     <section class="market-overview">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">市场概览</h2>
-                <p class="section-subtitle">主要加密货币实时价格</p>
+                <div class="section-badge">
+                    <i class="fas fa-chart-line"></i>
+                    <span>市场数据</span>
+                </div>
+                <h2 class="section-title">实时市场概览</h2>
+                <p class="section-subtitle">主要加密货币实时价格和市场表现</p>
             </div>
+            
+            <div class="market-controls">
+                <div class="market-tabs">
+                    <button class="tab-btn active" data-tab="top">热门币种</button>
+                    <button class="tab-btn" data-tab="gainers">涨幅榜</button>
+                    <button class="tab-btn" data-tab="losers">跌幅榜</button>
+                </div>
+                <div class="market-refresh">
+                    <button class="refresh-btn" id="refreshMarket">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>刷新</span>
+                    </button>
+                    <span class="last-update">最后更新: <span id="lastUpdate">--</span></span>
+                </div>
+            </div>
+            
             <div class="market-grid" id="marketGrid">
                 <!-- 市场数据将通过JavaScript动态加载 -->
             </div>
+            
             <div class="market-footer">
                 <a href="pages/market.html" class="btn btn-outline">
-                    查看完整市场数据
+                    <span>查看完整市场</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -176,101 +274,193 @@
     <section class="news-section">
         <div class="container">
             <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-newspaper"></i>
+                    <span>行业动态</span>
+                </div>
                 <h2 class="section-title">最新资讯</h2>
-                <p class="section-subtitle">掌握行业最新动态</p>
+                <p class="section-subtitle">掌握加密货币行业最新动态和深度分析</p>
             </div>
+            
             <div class="news-grid">
                 <article class="news-card featured">
                     <div class="news-image">
-                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=250&fit=crop" alt="比特币分析">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop&crop=center" alt="比特币市场分析" loading="lazy">
+                        <div class="news-overlay">
+                            <span class="news-category hot">热门</span>
+                        </div>
                     </div>
                     <div class="news-content">
                         <div class="news-meta">
-                            <span class="news-category">市场分析</span>
-                            <span class="news-date">2024-01-06</span>
+                            <span class="news-author">
+                                <i class="fas fa-user"></i>
+                                市场分析师
+                            </span>
+                            <span class="news-date">
+                                <i class="fas fa-clock"></i>
+                                2小时前
+                            </span>
                         </div>
-                        <h3 class="news-title">比特币突破关键阻力位，后市走势分析</h3>
-                        <p class="news-excerpt">技术分析显示比特币已突破重要阻力位，多项指标显示上涨趋势有望延续...</p>
-                        <a href="pages/news.html" class="news-link">阅读全文</a>
+                        <h3 class="news-title">比特币突破关键阻力位，牛市信号强烈</h3>
+                        <p class="news-excerpt">
+                            技术分析显示比特币已成功突破$110,000关键阻力位，多项技术指标显示上涨趋势有望延续。
+                            成交量放大配合价格突破，市场情绪转向乐观...
+                        </p>
+                        <div class="news-tags">
+                            <span class="tag">技术分析</span>
+                            <span class="tag">比特币</span>
+                            <span class="tag">市场趋势</span>
+                        </div>
+                        <a href="pages/news.html" class="news-link">
+                            <span>阅读全文</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
-                <article class="news-card">
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-category">政策法规</span>
-                            <span class="news-date">2024-01-05</span>
+                
+                <div class="news-sidebar">
+                    <article class="news-card compact">
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-category">政策法规</span>
+                                <span class="news-date">4小时前</span>
+                            </div>
+                            <h4 class="news-title">美国SEC批准更多比特币ETF申请</h4>
+                            <p class="news-excerpt">监管环境持续改善，机构投资者入场加速...</p>
                         </div>
-                        <h3 class="news-title">全球加密货币监管政策最新动态</h3>
-                        <p class="news-excerpt">各国监管机构对加密货币的态度正在发生变化...</p>
-                        <a href="pages/news.html" class="news-link">阅读全文</a>
-                    </div>
-                </article>
-                <article class="news-card">
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-category">技术发展</span>
-                            <span class="news-date">2024-01-04</span>
+                    </article>
+                    
+                    <article class="news-card compact">
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-category">技术发展</span>
+                                <span class="news-date">6小时前</span>
+                            </div>
+                            <h4 class="news-title">以太坊Layer2生态快速发展</h4>
+                            <p class="news-excerpt">Arbitrum和Optimism TVL创新高，扩容方案成效显著...</p>
                         </div>
-                        <h3 class="news-title">以太坊2.0升级带来的新机遇</h3>
-                        <p class="news-excerpt">以太坊网络的最新升级为DeFi生态带来了新的发展机遇...</p>
-                        <a href="pages/news.html" class="news-link">阅读全文</a>
-                    </div>
-                </article>
+                    </article>
+                    
+                    <article class="news-card compact">
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span class="news-category">市场动态</span>
+                                <span class="news-date">8小时前</span>
+                            </div>
+                            <h4 class="news-title">DeFi协议总锁仓量突破新高</h4>
+                            <p class="news-excerpt">去中心化金融生态持续繁荣，用户参与度大幅提升...</p>
+                        </div>
+                    </article>
+                </div>
             </div>
+            
             <div class="news-footer">
                 <a href="pages/news.html" class="btn btn-outline">
-                    查看更多资讯
+                    <span>查看更多资讯</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 交易教程预览 -->
-    <section class="guides-preview">
+    <!-- 交易教程 -->
+    <section class="guides-section">
         <div class="container">
             <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>学习中心</span>
+                </div>
                 <h2 class="section-title">交易教程</h2>
                 <p class="section-subtitle">从新手到专家的完整学习路径</p>
             </div>
+            
             <div class="guides-grid">
-                <div class="guide-card">
-                    <div class="guide-icon">
-                        <i class="fas fa-download"></i>
+                <div class="guide-card beginner">
+                    <div class="guide-header">
+                        <div class="guide-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="guide-level">新手</div>
                     </div>
-                    <h3>入金指南</h3>
-                    <p>详细的充值操作流程，支持多种支付方式</p>
-                    <a href="pages/guides/deposit-guide.html" class="guide-link">开始学习</a>
+                    <h3 class="guide-title">入金完全指南</h3>
+                    <p class="guide-description">详细的充值操作流程，支持多种支付方式，确保资金安全到账</p>
+                    <div class="guide-features">
+                        <span class="feature">支付方式</span>
+                        <span class="feature">安全保障</span>
+                        <span class="feature">手续费优化</span>
+                    </div>
+                    <a href="pages/guides/deposit-guide.html" class="guide-link">
+                        <span>开始学习</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="guide-card">
-                    <div class="guide-icon">
-                        <i class="fas fa-upload"></i>
+                
+                <div class="guide-card beginner">
+                    <div class="guide-header">
+                        <div class="guide-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <div class="guide-level">新手</div>
                     </div>
-                    <h3>出金指南</h3>
-                    <p>安全的提现操作步骤和注意事项</p>
-                    <a href="pages/guides/withdraw-guide.html" class="guide-link">开始学习</a>
+                    <h3 class="guide-title">安全出金指南</h3>
+                    <p class="guide-description">安全的提现操作步骤和注意事项，避免常见错误</p>
+                    <div class="guide-features">
+                        <span class="feature">安全验证</span>
+                        <span class="feature">提现限额</span>
+                        <span class="feature">到账时间</span>
+                    </div>
+                    <a href="pages/guides/withdraw-guide.html" class="guide-link">
+                        <span>开始学习</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="guide-card">
-                    <div class="guide-icon">
-                        <i class="fas fa-chart-line"></i>
+                
+                <div class="guide-card intermediate">
+                    <div class="guide-header">
+                        <div class="guide-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="guide-level">进阶</div>
                     </div>
-                    <h3>技术分析</h3>
-                    <p>K线图解读、技术指标应用和交易策略</p>
-                    <a href="pages/guides/technical-analysis.html" class="guide-link">开始学习</a>
+                    <h3 class="guide-title">技术分析教程</h3>
+                    <p class="guide-description">K线图解读、技术指标应用和实战交易策略</p>
+                    <div class="guide-features">
+                        <span class="feature">K线形态</span>
+                        <span class="feature">技术指标</span>
+                        <span class="feature">交易策略</span>
+                    </div>
+                    <a href="pages/guides/technical-analysis.html" class="guide-link">
+                        <span>开始学习</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="guide-card">
-                    <div class="guide-icon">
-                        <i class="fas fa-shield-alt"></i>
+                
+                <div class="guide-card advanced">
+                    <div class="guide-header">
+                        <div class="guide-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="guide-level">专家</div>
                     </div>
-                    <h3>风险管理</h3>
-                    <p>仓位管理、止损策略和投资组合优化</p>
-                    <a href="pages/guides/risk-management.html" class="guide-link">开始学习</a>
+                    <h3 class="guide-title">风险管理</h3>
+                    <p class="guide-description">仓位管理、止损策略和投资组合优化</p>
+                    <div class="guide-features">
+                        <span class="feature">仓位控制</span>
+                        <span class="feature">止损策略</span>
+                        <span class="feature">组合优化</span>
+                    </div>
+                    <a href="pages/guides/risk-management.html" class="guide-link">
+                        <span>开始学习</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
+            
             <div class="guides-footer">
                 <a href="pages/guides.html" class="btn btn-primary">
-                    查看所有教程
-                    <i class="fas fa-arrow-right"></i>
+                    <span>查看所有教程</span>
+                    <i class="fas fa-graduation-cap"></i>
                 </a>
             </div>
         </div>
@@ -278,52 +468,108 @@
 
     <!-- 页脚 -->
     <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-gradient"></div>
+        </div>
+        
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <h3>Hodor<span class="logo-accent">Crypto</span></h3>
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <div class="brand-info">
+                        <h3>Hodor<span class="brand-accent">Crypto</span></h3>
                         <p>专业的加密货币资讯和交易指导平台</p>
+                        <div class="brand-stats">
+                            <div class="stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">支持币种</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">实时监控</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h4>快速链接</h4>
-                    <ul class="footer-links">
-                        <li><a href="pages/market.html">市场行情</a></li>
-                        <li><a href="pages/news.html">最新资讯</a></li>
-                        <li><a href="pages/guides.html">交易教程</a></li>
-                        <li><a href="pages/announcements.html">活动公告</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>教程中心</h4>
-                    <ul class="footer-links">
-                        <li><a href="pages/guides/deposit-guide.html">入金指南</a></li>
-                        <li><a href="pages/guides/withdraw-guide.html">出金指南</a></li>
-                        <li><a href="pages/guides/security-guide.html">安全防护</a></li>
-                        <li><a href="pages/guides/risk-management.html">风险管理</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>联系我们</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> contact@hodorcrypto.com</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>平台功能</h4>
+                        <ul>
+                            <li><a href="pages/market.html">实时行情</a></li>
+                            <li><a href="pages/news.html">市场资讯</a></li>
+                            <li><a href="pages/guides.html">交易教程</a></li>
+                            <li><a href="pages/announcements.html">活动公告</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>学习中心</h4>
+                        <ul>
+                            <li><a href="pages/guides/deposit-guide.html">入金指南</a></li>
+                            <li><a href="pages/guides/withdraw-guide.html">出金指南</a></li>
+                            <li><a href="pages/guides/security-guide.html">安全防护</a></li>
+                            <li><a href="pages/guides/risk-management.html">风险管理</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>联系我们</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>contact@hodorcrypto.com</span>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link telegram">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#" class="social-link discord">
+                                    <i class="fab fa-discord"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2024 HodorCrypto. 保留所有权利。</p>
-                <p class="data-source">数据来源：CoinGecko API | 实时更新</p>
+                <div class="footer-info">
+                    <p>&copy; 2024 HodorCrypto. 保留所有权利。</p>
+                    <div class="footer-badges">
+                        <span class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            安全认证
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-clock"></i>
+                            实时数据
+                        </span>
+                    </div>
+                </div>
+                <div class="data-source">
+                    <p>数据来源：CoinGecko API | 实时更新</p>
+                    <div class="api-status">
+                        <div class="status-dot active"></div>
+                        <span>API状态正常</span>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/ultra-modern.js"></script>
     <script src="js/real-data-loader.js"></script>
-    <script src="js/modern-interactions.js"></script>
 </body>
 </html>
